@@ -21,5 +21,6 @@ class City < ApplicationRecord
   self.table_name  = 'cities'
   self.primary_key = 'id'
 
+  has_many :jobs, dependent: :destroy
   belongs_to :state
 end

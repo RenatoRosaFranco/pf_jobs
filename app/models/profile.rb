@@ -24,7 +24,7 @@
 class Profile < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: [:slugged]
-  
+
   self.table_name  = 'profiles'
   self.primary_key = 'id'
 

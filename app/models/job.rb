@@ -37,11 +37,17 @@ class Job < ApplicationRecord
   self.table_name  = 'jobs'
   self.primary_key = 'id'
 
-  scope :by_title, -> (title) { order("title LIKE ?", "%#{title}") }
+  after_create :set_expiration_date
+
+  scope :by_title, ->(title) { order('title LIKE ?', "%#{title}") }
   scope :recents,  -> { order(created_at: :desc) }
   scope :active,   -> { where(expirated: false) }
 
   belongs_to :hiring_type
   belongs_to :occupation_area
   belongs_to :user
+
+  def set_expiration_date(date = Date.today + 12.day)
+    self.expiration_date = date
+  end
 end

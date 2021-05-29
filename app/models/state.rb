@@ -16,5 +16,6 @@ class State < ApplicationRecord
   self.table_name  = 'states'
   self.primary_key = 'id'
 
+  has_many :jobs, dependent: :destroy
   has_many :cities, dependent: :destroy
 end
