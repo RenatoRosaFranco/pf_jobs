@@ -11,6 +11,7 @@
 #  location           :string
 #  modality           :integer
 #  salary             :float
+#  slug               :string
 #  title              :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -29,6 +30,9 @@
 #  index_jobs_on_user_id             (user_id)
 #
 class Job < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: [:slugged]
+
   self.table_name  = 'jobs'
   self.primary_key = 'id'
 

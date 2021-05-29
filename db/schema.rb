@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_175302) do
+ActiveRecord::Schema.define(version: 2021_05_29_180535) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -39,13 +39,26 @@ ActiveRecord::Schema.define(version: 2021_05_29_175302) do
     t.integer "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "hiring_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -65,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_05_29_175302) do
     t.integer "state_id"
     t.integer "city_id"
     t.boolean "expirated"
+    t.string "slug"
     t.index ["city_id"], name: "index_jobs_on_city_id"
     t.index ["hiring_type_id"], name: "index_jobs_on_hiring_type_id"
     t.index ["occupation_area_id"], name: "index_jobs_on_occupation_area_id"
@@ -90,6 +104,7 @@ ActiveRecord::Schema.define(version: 2021_05_29_175302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "slug"
     t.index ["city_id"], name: "index_profiles_on_city_id"
     t.index ["state_id"], name: "index_profiles_on_state_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
@@ -100,6 +115,7 @@ ActiveRecord::Schema.define(version: 2021_05_29_175302) do
     t.string "acronym"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "users", force: :cascade do |t|

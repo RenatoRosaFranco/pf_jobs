@@ -7,6 +7,7 @@
 #  logo        :string
 #  name        :string
 #  phone       :string
+#  slug        :string
 #  website     :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
