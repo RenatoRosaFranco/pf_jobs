@@ -14,11 +14,11 @@
             %h2{class: 'bold'} Desenvolvedor PHP Laravel Junior
             %ul{class: 'list-unstyled list-inline'}
               %li
-                %i{class: ''}
-                %p São Borja, Rio Grande do Sul
+                %i{class: 'fas fa-map-marker-alt'}
+                %span São Borja, Rio Grande do Sul
               %li
-                %i{class: ''}
-                %p https://portalfronteirico.com
+                %i{class: 'fas fa-globe-americas'}
+                %span https://portalfronteirico.com
 
 %section{class:'container'}
   .container
@@ -26,7 +26,7 @@
       .col-md-12
 
         .row
-          .col-md-8
+          .col-md-7
             .row
               .col-md-12
                 %h2{class: 'job-heading bold'} Descrição da Vaga
@@ -69,6 +69,10 @@
                   .field
                     = f.select(:email, {'Diario': 'Diario', 'Semanal': 'Semanal', 'Mensal': 'Mensal'},
                     { prompt: 'Selecionar'}, {class: 'form-control'})
+                  %br
+
+                  .field
+                    = recaptcha_tags
                   %br
 
                   .field{class: 'text-center'}
