@@ -1,0 +1,124 @@
+= provide :title, ''
+= provide :description, ''
+= provide :keywords, ''
+= provide :ld_json, {}
+
+%section{id: 'presenter', class: 'jumbotron'}
+  .container
+    .row
+      .col-md-12
+
+        .row{class: 'text-center'}
+          %h1{class: 'bold uppercase'} Temos 1,303 vagas em aberto
+          %p Encontre sua vaga de trabalho de maneira bem simples.
+          %br
+
+        .row
+          .col-md-8{class: 'col-md-offset-2'}
+            .panel{class: 'panel-default'}
+              .panel-body
+                = form_for(:search) do |f|
+
+                  .col-md-4
+                    = f.text_field :keywords, class: 'form-control',
+                    placeholder: 'Palavras-chave'
+
+                  .col-md-4
+                    = f.text_field :location, class: 'form-control',
+                    placeholder: 'Local'
+
+                  .col-md-4
+                    = f.submit 'Buscar Vagas',
+                    class: 'btn btn-primary btn-lg top'
+
+#companies
+  .container
+    .row
+      .col-md-12
+
+        .row{class: 'text-center'}
+          %h3{class: 'bold uppercase'} Empresas em destaque
+          %br
+
+        .row
+          .col-md-10{class: 'col-md-offset-1'}
+
+            .row
+              - for i in 1..3
+                .col-md-4
+                  .panel{class: 'panel-default'}
+                    .panel-heading
+                      .jumbotron
+                    .panel-body
+                      %p{class: 'pull-left'} Portal Fronteirico
+                      %p{class: 'pull-right bold'}
+                        = link_to "5 vaga(s)", ""
+
+#new-job
+  .container
+    .row
+      .col-md-12{class: 'text-center'}
+        %h3{class: 'bold uppercase'} Publique as vagas de sua empresa.
+        %p Os profissionais poderão se candidatar imediatamente.
+
+        = link_to 'Publicar Vaga', new_dashboard_job_path, class: 'btn btn-primary btn-lg top'
+
+#jobs
+  .container
+    .row
+      .col-md-12
+
+        .row{class: 'text-center'}
+          %h2{class: 'bold uppercase'} Últimas Vagas Publicadas
+          %br
+
+        .row
+          - for i in 1..4
+            .col-md-12
+              .panel{class: 'panel-default'}
+                .panel-body
+                  .col-md-3
+                    .jumbotron{class: 'job-company-avatar'}
+                  .col-md-7
+                    %h3{class: 'job-title bold'}= link_to 'Designer UX/UI', ''
+                    %ul{class: 'list-unstyled list-inline'}
+                      %li
+                        %i{class: ''}
+                        %p{class: 'bold job-company'} CEFIS
+                      %li
+                        %i{class: ''}
+                        %p{class: 'bold job-location'} São Borja, Rio Grande do Sul
+
+                    %p{class: 'job-description'} Achou nossas artes feias? Tranquilo, também concordamos! venha os ajudar a evoluir Vagas para Designer UI/UX na CEPS.
+
+                  .col-md-2
+                    %p{class: '.job-date'} 29/02/2021
+                    %span{class: 'job-modality badge'} CLT Full
+
+#newsletter
+  .container
+    .row
+      .col-md-12
+
+        .row
+          .col-md-6
+            %h3{class: 'bold uppercase'} Receba alertas de vagas
+            %p{class: 'alert alert-default'} Receba alertas de vagas diretamente em seu email.
+            %p Você poderá descadastrar-se a qualquer momento.
+
+          .col-md-6
+            .panel.panel-default
+              .panel-body
+                = form_for(:newsletter) do |f|
+                  .field
+                    = f.email_field :email, class: 'form-control',
+                    required: 'required', placeholder: 'Seu e-mail'
+                  %br
+
+                  .field
+                    = f.select(:email, {},
+                    { prompt: 'Selecionar'}, {class: 'form-control'})
+                  %br
+
+                  .field{class: 'text-center'}
+                    = f.submit 'Criar Alerta', class: 'btn btn-primary btn-lg top'

@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   # @implemented
   namespace :dashboard do
     get '', to: 'home#index'
+    resources :jobs
   end
 end

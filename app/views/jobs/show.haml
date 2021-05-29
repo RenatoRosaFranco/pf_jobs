@@ -1,0 +1,74 @@
+= provide :title, ''
+= provide :description, ''
+= provide :keywords, ''
+= provide :ld_json, {}
+
+%section{id: 'presenter', class: 'jumbotron'}
+  .container
+    .row
+      .col-md-12
+        .row
+          .col-md-12{style: 'padding-left: 30px;'}
+            = link_to 'Voltar', jobs_path, class: 'btn btn-primary btn-lg top'
+
+            %h2{class: 'bold'} Desenvolvedor PHP Laravel Junior
+            %ul{class: 'list-unstyled list-inline'}
+              %li
+                %i{class: ''}
+                %p Bitis
+              %li
+                %i{class: ''}
+                %p Remoto
+              %li
+                %i{class: ''}
+                %p 29/05/2021
+
+            %ul{class: 'list-unstyled list-inline'}
+              %li
+                %span{class: 'badge'} CLT Full
+              %li{}
+                %span{class: 'badge'} Programação/Arquitetura
+
+%section{class:'container'}
+  .container
+    .row
+      .col-md-12
+
+        .row
+          .col-md-8
+            .row
+              .col-md-12
+                %h2{class: 'job-heading bold'} Descrição da Vaga
+                %p{class: 'job-description'} Apenas uma descrição
+
+            .row
+              .col-md-12
+                %h2{class: 'job-heading bold'} Salário
+                %p{class: 'job-description'} a Combinar
+            %br
+
+            .row
+              .col-md-12
+                .panel{class: 'panel-default'}
+                  .panel-body
+                    = form_for(:alert) do |f|
+                      .col-md-4
+                        %h5{class: 'bold'} Receber email para vagas desse tipo
+
+                      .col-md-5
+                        = f.email_field :email, class: 'form-control', required: 'required',
+                        placeholder: "Seu email"
+
+                      .col-md-3
+                        = f.submit 'Criar Alerta', class: 'btn btn-primary btn-lg top'
+
+
+          .col-md-3{class: 'col-md-offset-1', style: 'margin-top: -100px;'}
+            .panel{class: 'panel-default'}
+              .panel-body{class: 'text-center'}
+                .jumbotron
+                %h3{class: 'bold'} Sobre a Bitis
+                %p{class: 'text-left'} A Bitis é uma plataforma Saas de gestão comercial focada em atender as necessidades de micro e pequenas empresas em todo o Brasil.
+                %br
+
+                = link_to 'Perfil da Empresa', '', class: 'btn btn-primary btn-lg top'

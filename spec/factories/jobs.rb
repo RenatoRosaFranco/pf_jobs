@@ -8,6 +8,7 @@
 #  expirated          :boolean
 #  expiration_date    :date
 #  how_to_apply       :integer
+#  keywords           :string
 #  location           :string
 #  modality           :integer
 #  salary             :float

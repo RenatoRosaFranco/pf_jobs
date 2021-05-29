@@ -1,0 +1,108 @@
+= provide :title, ''
+= provide :description, ''
+= provide :keywords, ''
+= provide :ld_json, {}
+
+%section{id: 'presenter', class: 'jumbotron'}
+  .container
+    .row
+      .col-md-12
+        .row
+          .col-md-8{class: 'col-md-offset-2'}
+            .panel{class: 'panel-default'}
+              .panel-body
+                = form_for(:search) do |f|
+
+                  .col-md-4
+                    = f.text_field :keywords, class: 'form-control',
+                    placeholder: 'Palavras-chave'
+
+                  .col-md-4
+                    = f.text_field :location, class: 'form-control',
+                    placeholder: 'Local'
+
+                  .col-md-4
+                    = f.submit 'Buscar Vagas', 
+                    class: 'btn btn-primary btn-lg top'
+
+#section{class: 'content'}
+  .container
+    .row
+      .col-md-12
+        .col-md-3
+
+          .row
+            .col-md-12
+              %h4{class: 'bold'} Refinar por Cidade
+              %ul{class: 'list-unstyled'}
+                %li= link_to 'Remoto', ''
+                %li= link_to 'São Paulo', ''
+                %li= link_to 'Brasilia', ''
+                %li= link_to 'Rio de Janeiro', ''
+                %li= link_to 'Florianópolis', ''
+                %li= link_to 'Curitiba', ''
+                %li= link_to 'Mais', ''
+
+          .row
+            .col-md-12
+              %h4{class: 'bold'} Refinar por Áreas de atuação
+              %ul{class: 'list-unstyled'}
+                %li= link_to 'Programação/Arquitetura', ''
+                %li= link_to 'Redes/Infraestrutura', ''
+                %li= link_to 'Banco de Dados', ''
+                %li= link_to 'Gestão de TI', ''
+                %li= link_to 'Testes', ''
+                %li= link_to 'Inovação e Gestão', ''
+                %li= link_to 'Mais', ''
+
+          .row
+            .col-md-12
+              %h4{class: 'bold'} Refinar por tipo de contratação
+              %ul{class: 'list-unstyled'}
+                %li= link_to 'A combinar', ''
+                %li= link_to 'CLT Full', ''
+                %li= link_to 'PJ', ''
+                %li= link_to 'CLT Flex', ''
+                %li= link_to 'Estágio', ''
+
+        .col-md-9
+          .row
+            .col-md-12
+              .panel{class: 'panel-default'}
+                .panel-body
+                  = form_for(:alert) do |f|
+                    .col-md-4
+                      %h5{class: 'bold'} Receber email para vagas desse tipo
+
+                    .col-md-5
+                      = f.email_field :email, class: 'form-control', required: 'required',
+                      placeholder: "Seu email"
+
+                    .col-md-3
+                      = f.submit 'Criar Alerta', class: 'btn btn-primary btn-lg top'
+
+          .row
+            .col-md-12
+
+              .row
+                - for i in (1..20)
+                  .col-md-12
+                    .panel{class: 'panel-default'}
+                      .panel-body
+                        .col-md-3
+                          .jumbotron{class: 'job-company-avatar'}
+                        .col-md-7
+                          %h3{class: 'job-title bold'}= link_to 'Designer UX/UI', ''
+                          %ul{class: 'list-unstyled list-inline'}
+                            %li
+                              %i{class: ''}
+                              %p{class: 'bold job-company'} CEFIS
+                            %li
+                              %i{class: ''}
+                              %p{class: 'bold job-location'} São Borja, Rio Grande do Sul
+
+                          %p{class: 'job-description'} Achou nossas artes feias? Tranquilo, também concordamos! venha os ajudar a evoluir Vagas para Designer UI/UX na CEPS.
+
+                        .col-md-2
+                          %p{class: '.job-date'} 29/02/2021
+                          %span{class: 'job-modality badge'} CLT Full

@@ -8,6 +8,7 @@
 #  expirated          :boolean
 #  expiration_date    :date
 #  how_to_apply       :integer
+#  keywords           :string
 #  location           :string
 #  modality           :integer
 #  salary             :float
@@ -36,8 +37,9 @@ class Job < ApplicationRecord
   self.table_name  = 'jobs'
   self.primary_key = 'id'
 
-  scope :recents, -> { order(created_at: :desc) }
-  scope :active,  -> { where(expirated: false) }
+  scope :by_title, -> (title) { order("title LIKE ?", "%#{title}") }
+  scope :recents,  -> { order(created_at: :desc) }
+  scope :active,   -> { where(expirated: false) }
 
   belongs_to :hiring_type
   belongs_to :occupation_area

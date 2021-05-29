@@ -6,7 +6,7 @@ ruby '2.7.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -22,6 +22,7 @@ gem 'fast_jsonapi'
 gem 'pundit'
 gem 'bootstrap3-rails'
 gem 'jquery-rails'
+gem 'haml'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -53,6 +54,7 @@ group :development, :test do
   gem 'ffaker'
   gem 'faker'
   gem 'rubocop'
+  gem 'better_errors'
   gem 'simplecov'
   gem 'factory_bot_rails'
   gem 'rails_best_practices'
@@ -60,6 +62,7 @@ group :development, :test do
   gem 'kaminari'
   gem 'kaminari-bootstrap3'
   gem 'rails-erd'
+  gem 'sqlite3'
 end
 
 group :development do

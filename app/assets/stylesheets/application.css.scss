@@ -14,3 +14,22 @@
  *= require_self
  */
  @import 'bootstrap';
+
+ .bold {
+   position: relative;
+   font-weight: bold;
+ }
+
+ .uppercase {
+   position: relative;
+   text-transform: uppercase;
+ }
+
+ #presenter {
+   position: relative;
+   margin-top: -20px;
+ }
+
+ footer {
+
+ }
