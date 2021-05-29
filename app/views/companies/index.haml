@@ -3,3 +3,48 @@
 = provide :keywords, ''
 = provide :ld_json, {}
 
+%section{id: 'presenter', class: 'jumbotron'}
+  .container
+    .row
+      .col-md-12
+        .row
+          .col-md-8{class: 'col-md-offset-2'}
+            .panel{class: 'panel-default'}
+              .panel-body
+                = form_for(:search) do |f|
+
+                  .col-md-4
+                    = f.text_field :name, class: 'form-control',
+                    placeholder: 'Nome da Empresa'
+
+                  .col-md-4
+                    = f.text_field :location, class: 'form-control',
+                    placeholder: 'Local'
+
+                  .col-md-4
+                    = f.submit 'Buscar Empresas',
+                    class: 'btn btn-primary btn-lg top'
+
+%section{id: 'content'}
+  .container
+    .row
+      .col-md-12
+
+        .row{class: 'text-center'}
+          %h3{class: 'bold'} #{rand(0..3_000)} Empresa(s)
+          %br
+
+        .row
+          = for i in 1..60
+            .col-md-4
+              .panel{class: 'panel-default'}
+                .panel-heading
+                  .jumbotron
+                .panel-body
+                  %p{class: 'pull-left'}=link_to 'Portal Fronteirico', company_path(i)
+                  %p{class: 'pull-right bold'}
+                    = link_to "5 vaga(s)", ""
+
+        .row
+          .text-center
+            = link_to 'Carregar Mais', companies_path, class: 'btn btn-primary btn-lg top'

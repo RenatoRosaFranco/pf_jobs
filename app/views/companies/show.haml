@@ -3,3 +3,73 @@
 = provide :keywords, ''
 = provide :ld_json, {}
 
+%section{id: 'presenter', class: 'jumbotron'}
+  .container
+    .row
+      .col-md-12
+        .row
+          .col-md-12{style: 'padding-left: 30px;'}
+            = link_to 'Voltar', jobs_path, class: 'btn btn-primary btn-lg top'
+
+            %h2{class: 'bold'} Desenvolvedor PHP Laravel Junior
+            %ul{class: 'list-unstyled list-inline'}
+              %li
+                %i{class: ''}
+                %p São Borja, Rio Grande do Sul
+              %li
+                %i{class: ''}
+                %p https://portalfronteirico.com
+
+%section{class:'container'}
+  .container
+    .row
+      .col-md-12
+
+        .row
+          .col-md-8
+            .row
+              .col-md-12
+                %h2{class: 'job-heading bold'} Descrição da Vaga
+                %p{class: 'job-description'} Apenas uma descrição
+
+            .row
+              .col-md-12
+                %h2{class: 'job-heading bold'} Salário
+                %p{class: 'job-description'} a Combinar
+            %br
+
+            .row
+              .col-md-12
+                .panel{class: 'panel-default'}
+                  .panel-body
+                    = form_for(:alert) do |f|
+                      .col-md-4
+                        %h5{class: 'bold'} Receber email para vagas desse tipo
+
+                      .col-md-5
+                        = f.email_field :email, class: 'form-control', required: 'required',
+                        placeholder: "Seu email"
+
+                      .col-md-3
+                        = f.submit 'Criar Alerta', class: 'btn btn-primary btn-lg top'
+
+
+          .col-md-3{class: 'col-md-offset-1', style: 'margin-top: -100px;'}
+            .panel{class: 'panel-default'}
+              .panel-body{class: 'text-center'}
+                %h4{class: 'bold'} Envie-me vagas de Sine
+                %br
+
+                = form_for(:newsletter) do |f|
+                  .field
+                    = f.email_field :email, class: 'form-control',
+                    required: 'required', placeholder: 'Seu e-mail'
+                  %br
+
+                  .field
+                    = f.select(:email, {'Diario': 'Diario', 'Semanal': 'Semanal', 'Mensal': 'Mensal'},
+                    { prompt: 'Selecionar'}, {class: 'form-control'})
+                  %br
+
+                  .field{class: 'text-center'}
+                    = f.submit 'Criar Alerta', class: 'btn btn-primary btn-lg top'

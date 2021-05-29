@@ -4,12 +4,11 @@
     <title>PfJobs</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/5165849ba2.js" crossorigin="anonymous"></script>
   </head>
-
-  <body>
+  <body class="<%= controller.controller_name %>">
     <%= render partial: 'layouts/header' %>
       <%= yield %>
     <%= render partial: 'layouts/footer' %>

@@ -33,7 +33,9 @@
 
           .row
             .col-md-12
-              %h4{class: 'bold'} Refinar por Cidade
+              %h4{class: 'bold'}
+                %i{class: 'fas fa-caret-right'}
+                Refinar por Cidade
               %ul{class: 'list-unstyled'}
                 %li= link_to 'Remoto', ''
                 %li= link_to 'São Paulo', ''
@@ -45,7 +47,9 @@
 
           .row
             .col-md-12
-              %h4{class: 'bold'} Refinar por Áreas de atuação
+              %h4{class: 'bold'}
+                %i{class: 'fas fa-caret-right'}
+                Refinar por Áreas de atuação
               %ul{class: 'list-unstyled'}
                 %li= link_to 'Programação/Arquitetura', ''
                 %li= link_to 'Redes/Infraestrutura', ''
@@ -57,7 +61,9 @@
 
           .row
             .col-md-12
-              %h4{class: 'bold'} Refinar por tipo de contratação
+              %h4{class: 'bold'}
+                %i{class: 'fas fa-caret-right'}
+                Refinar por tipo de contratação
               %ul{class: 'list-unstyled'}
                 %li= link_to 'A combinar', ''
                 %li= link_to 'CLT Full', ''
@@ -95,14 +101,18 @@
                           %h3{class: 'job-title bold'}= link_to 'Designer UX/UI', ''
                           %ul{class: 'list-unstyled list-inline'}
                             %li
-                              %i{class: ''}
-                              %p{class: 'bold job-company'} CEFIS
+                              %i{class: 'bold fas fa-briefcase'}
+                              %span{class: 'bold job-company'} CEFIS
                             %li
-                              %i{class: ''}
-                              %p{class: 'bold job-location'} São Borja, Rio Grande do Sul
+                              %i{class: 'bold fas fa-map-marker-alt'}
+                              %span{class: 'bold job-location'} São Borja, Rio Grande do Sul
 
                           %p{class: 'job-description'} Achou nossas artes feias? Tranquilo, também concordamos! venha os ajudar a evoluir Vagas para Designer UI/UX na CEPS.
 
                         .col-md-2
                           %p{class: '.job-date'} 29/02/2021
                           %span{class: 'job-modality badge'} CLT Full
+        
+            .row
+              .text-center
+                = link_to 'Carregar mais', '', class: 'btn btn-primary btn-lg top'
