@@ -9,10 +9,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  state_id   :integer
+#  user_id    :integer
 #
 # Indexes
 #
 #  index_cities_on_state_id  (state_id)
+#  index_cities_on_user_id   (user_id)
 #
 class City < ApplicationRecord
   extend FriendlyId
@@ -23,4 +25,5 @@ class City < ApplicationRecord
 
   has_many :jobs, dependent: :destroy
   belongs_to :state
+  belongs_to :user
 end

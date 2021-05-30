@@ -28,6 +28,9 @@ class Profile < ApplicationRecord
   self.table_name  = 'profiles'
   self.primary_key = 'id'
 
+  has_one_attached :logo
+
   belongs_to :state
   belongs_to :city
+  belongs_to :user
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_180857) do
+ActiveRecord::Schema.define(version: 2021_05_30_132844) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,7 +40,9 @@ ActiveRecord::Schema.define(version: 2021_05_29_180857) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.integer "user_id"
     t.index ["state_id"], name: "index_cities_on_state_id"
+    t.index ["user_id"], name: "index_cities_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -59,6 +61,8 @@ ActiveRecord::Schema.define(version: 2021_05_29_180857) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_hiring_types_on_user_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -92,6 +96,8 @@ ActiveRecord::Schema.define(version: 2021_05_29_180857) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_occupation_areas_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -117,6 +123,8 @@ ActiveRecord::Schema.define(version: 2021_05_29_180857) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_states_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

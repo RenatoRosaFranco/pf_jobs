@@ -20,8 +20,12 @@ class User < ApplicationRecord
   self.table_name  = 'users'
   self.primary_key = 'id'
 
-  has_one :profile, dependent: :destroy
-  has_many :jobs,   dependent: :destroy
+  has_one  :profile, dependent: :destroy
+  has_many :jobs, dependent: :destroy
+  has_many :cities, dependent: :destroy
+  has_many :hiring_types, dependent: :destroy
+  has_many :occupation_areas, dependent: :destroy
+  has_many :states, dependent: :destroy
 
   scope :recents, -> { order(created_at: :desc) }
   # Include default devise modules. Others available are:
