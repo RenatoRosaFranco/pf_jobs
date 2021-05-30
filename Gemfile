@@ -26,6 +26,7 @@ gem 'recaptcha'
 gem 'draper'
 gem 'pundit'
 gem 'bootstrap3-rails'
+gem 'sendgrid-ruby'
 gem 'jquery-rails'
 gem 'haml'
 # Use CoffeeScript for .coffee assets and views

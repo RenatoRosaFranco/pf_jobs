@@ -5,12 +5,15 @@
 #  id                 :integer          not null, primary key
 #  application_path   :string
 #  description        :text
+#  desirable          :text
 #  expirated          :boolean
 #  expiration_date    :date
 #  how_to_apply       :integer
 #  keywords           :string
 #  location           :string
 #  modality           :integer
+#  others             :text
+#  requirements       :text
 #  salary             :float
 #  slug               :string
 #  title              :string

@@ -287,6 +287,7 @@ GEM
       rexml
     ruby-progressbar (1.11.0)
     ruby_dep (1.5.0)
+    ruby_http_client (3.5.2)
     rubyzip (2.3.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -302,6 +303,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sendgrid-ruby (6.4.0)
+      ruby_http_client (~> 3.4)
     sexp_processor (4.15.3)
     simplecov (0.21.2)
       docile (~> 1.1)
@@ -389,6 +392,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver
+  sendgrid-ruby
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)

@@ -10,7 +10,7 @@
 
         .row{class: 'text-center'}
           %h1{class: 'bold uppercase'} Temos #{rand(0..1_400)} vagas em aberto
-          %p Encontre sua vaga de trabalho de maneira bem simples.
+          %p Encontre seu próximo trabalho de maneira bem simples.
           %br
 
         .row
@@ -31,13 +31,58 @@
                     = f.submit 'Buscar Vagas',
                     class: 'btn btn-primary btn-lg top'
 
-#companies
+#branding
+  .container
+    .row
+      .col-md-12
+
+        .row
+          .col-md-12
+
+            .col-md-3{class: 'text-center'}
+              %h3{class: 'bold'} Portal Fronteiriço
+
+            .col-md-9
+              %h4{class: 'bold'} A plataforma mais completa de recrutamento que reúne os
+              %h4{class: 'bold'} profissionais do futuro às carreiras do amanhã.
+        %br
+
+        .row
+          .col-md-6
+            .panel.panel-default
+              .panel-body{style: 'background-color: #EEE;'}
+                .inner-box{class: 'col-md-8'}
+                  .panel{class: 'panel-default'}
+                    .panel-body
+                      %h2{class: 'bold'} Para Candidatos
+                      %p As vagas de trabalho nunca esfriam
+                      %p Mais de #{rand(0..7_000)} empresas contratando.
+                      %br
+
+                      = link_to 'Em Breve', '', class: 'btn btn-primary btn-lg top'
+
+          .col-md-6
+            .panel.panel-default
+              .panel-body{style: 'background-color: #EEE;'}
+                .inner-box{class: 'col-md-8'}
+                  .panel{class: 'panel-default'}
+                    .panel-body
+                      %h2{class: 'bold'} Para Empresas
+                      %p Prático e fácil de usar para você encontrar
+                      %p profissionais sem perder tempo.
+                      %br
+
+                      = link_to 'Começar agora', '', class: 'btn btn-primary btn-lg top'
+
+#companies{style: 'margin-bottom: 30px;'}
   .container
     .row
       .col-md-12
 
         .row{class: 'text-center'}
           %h3{class: 'bold uppercase'} Empresas em destaque
+          %h5{class: 'bold uppercase'} Perfils e marcas que se atraem
+          %p Veja quem contrata com a gente.
           %br
 
         .row
@@ -54,7 +99,7 @@
                       %p{class: 'pull-right bold'}
                         = link_to "5 vaga(s)", ""
 
-#new-job
+#new-job{class: 'jumbotron'}
   .container
     .row
       .col-md-12{class: 'text-center'}
@@ -63,7 +108,60 @@
 
         = link_to 'Publicar Vaga', new_dashboard_job_path, class: 'btn btn-primary btn-lg top'
 
-#jobs
+#academy
+  .container
+    .row
+      .col-md-12
+
+        .row
+          .col-md-4
+            %h4{class: 'bold'} Portal Fronteiriço
+            %h3{class: 'uppercase'} Academy
+            %br
+
+            %h4{class: 'bold'} Sua jornada é você quem faz
+            %br
+
+            %p Academy seleciona e produz cursos a partir de
+            das principais habilidades que o mercado procura
+            no momento. Aprenda o ritmo de quem contrata.
+            %br
+
+            %br
+            %p De forma prática, eficiente e contemporânea.
+            Quem evolui durante a jornada nunca perde a
+            relevância.
+            %br
+
+            %br 
+            = link_to 'Em Breve', '', class: 'btn btn-primary btn-lg top'
+
+          .col-md-8
+            .col-md-12
+              %h4{class: 'bold text-center'} Cursos em destaque
+              %br
+
+              - for i in (1..2)
+                .col-md-6
+                  .panel{class: 'panel-default'}
+                    .panel-heading{style: 'padding-top: 50px; padding-bottom: 30px;'}
+                      %h4{class: 'bold text-center'} Jornalismo de Dados
+                      %p{class: 'bold text-right'} Online
+                    .panel-body
+                      %h4{class: 'bold'} Jornalismo de Dados
+                      %h4{class: 'bold'} De R$ 180
+                      %h3{class: 'bold'} Por R$165
+                      %p Desconto assinando o prime
+
+                      .media
+                        %media-left
+                          %a{class: 'pull-left'}
+                            %div{style: 'width: 44px; height: 44px; background-color: #EEE; margin-right: 10px; border-radius: 44px;'}
+                        %media-body
+                          %h4{class: 'bold'} Felipe Morais
+
+
+#jobs{style: 'margin-top: 50px; margin-bottom: 50px;'}
   .container
     .row
       .col-md-12

@@ -4,15 +4,14 @@ Rails.application.routes.draw do
 
   # Authentication
   # @implemented
-  devise_for :users, {
-
-  }
+  devise_for :users, {}
 
   # Application
   # @implemented
   root to: 'home#index'
   resources :jobs, only: [:index, :show]
   resources :companies, only: [:index, :show]
+  resources :courses, only: [:index]
 
   # Dashboard
   # @implemented

@@ -5,6 +5,7 @@
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  featured               :boolean
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -27,7 +28,10 @@ class User < ApplicationRecord
   has_many :occupation_areas, dependent: :destroy
   has_many :states, dependent: :destroy
 
-  scope :recents, -> { order(created_at: :desc) }
+  scope :recents,  -> { order(created_at: :desc) }
+  scope :featured, -> { where(featured: true) }
+
+  after_create :create_profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

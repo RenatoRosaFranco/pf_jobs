@@ -30,7 +30,7 @@ class Profile < ApplicationRecord
 
   has_one_attached :logo
 
-  belongs_to :state
-  belongs_to :city
+  belongs_to :state, optional: true
+  belongs_to :city,  optional: true
   belongs_to :user
 end
