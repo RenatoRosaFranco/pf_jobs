@@ -19,5 +19,8 @@ Rails.application.routes.draw do
   namespace :dashboard do
     get '', to: 'home#index'
     resources :jobs
+    resources :invoices, only: [:index]
+    resources :profiles, only: [:edit, :update]
+    resources :accounts, only: [:edit, :update, :destroy]
   end
 end

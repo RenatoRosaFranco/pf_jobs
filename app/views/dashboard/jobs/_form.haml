@@ -1,0 +1,39 @@
+= form_for(:dashboard, job) do |f|
+  = has_errors?(job)
+
+  .field
+    = f.label :title, 'Titulo'
+    = f.text_field :title, class: 'form-control', required: 'required',
+    placeholder: 'Digite o titulo', autocomplete: 'off'
+
+  .field
+    = f.label :description, 'Descrição'
+    = f.text_area :description, class: 'form-control', required: 'required',
+    placeholder: 'Digite a descrição', autocomplete: 'off'
+
+  .field
+    = f.label :hiring_type_id, 'Tipo de Contratação'
+
+  .field
+    = f.label :occupation_area_id, 'Área de Ocupação'
+
+  .field
+    = f.label :salary,   'Salario'
+
+  .field
+    = f.label :modality, 'Modalidade'
+
+  .field
+    = f.label :location, 'Localização'
+
+  .fiel
+    = f.label :state_id, 'Estado'
+
+  .field
+    = f.label :city_id,  'Cidade'
+
+  .field
+    = f.label :keywords, 'Palavras-Chave'
+
+  .actions
+    = f.submit nil, class: 'btn btn-primary btn-lg top'

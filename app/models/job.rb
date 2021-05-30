@@ -39,6 +39,8 @@ class Job < ApplicationRecord
 
   after_create :set_expiration_date
 
+  enum modality: ['Presencial', 'Remoto']
+
   scope :by_title, ->(title) { order('title LIKE ?', "%#{title}") }
   scope :recents,  -> { order(created_at: :desc) }
   scope :active,   -> { where(expirated: false) }

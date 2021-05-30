@@ -16,9 +16,20 @@
  @import 'bootstrap';
 
  .bold {
-   position: relative;
-   font-weight: bold;
+  position: relative;
+  font-weight: bold;
  }
+
+ body {
+  position: relative;
+  background-color: #FFF;
+ }
+
+
+.navbar-default {
+  position: relative;
+  background-color: #EEE !important;
+}
 
 .navbar-brand {
   position: relative;
