@@ -209,6 +209,7 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     netrc (0.11.0)
+    newrelic_rpm (7.0.0)
     nio4r (2.5.7)
     nokogiri (1.11.6-x86_64-linux)
       racc (~> 1.4)
@@ -435,6 +436,7 @@ DEPENDENCIES
   kaminari
   kaminari-bootstrap3
   listen (>= 3.0.5, < 3.2)
+  newrelic_rpm
   overcommit
   paper_trail
   paranoia
