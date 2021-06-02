@@ -4,6 +4,7 @@
 #
 #  id                 :integer          not null, primary key
 #  application_path   :string
+#  deleted_at         :datetime
 #  description        :text
 #  desirable          :text
 #  expirated          :boolean

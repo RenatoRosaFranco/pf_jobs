@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_30_141800) do
+ActiveRecord::Schema.define(version: 2021_06_02_010612) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_05_30_141800) do
     t.text "requirements"
     t.text "desirable"
     t.text "others"
+    t.datetime "deleted_at"
     t.index ["city_id"], name: "index_jobs_on_city_id"
     t.index ["hiring_type_id"], name: "index_jobs_on_hiring_type_id"
     t.index ["occupation_area_id"], name: "index_jobs_on_occupation_area_id"
@@ -139,6 +140,8 @@ ActiveRecord::Schema.define(version: 2021_05_30_141800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "featured"
+    t.boolean "admin"
+    t.datetime "deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

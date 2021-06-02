@@ -4,6 +4,7 @@
 #
 #  id                 :integer          not null, primary key
 #  application_path   :string
+#  deleted_at         :datetime
 #  description        :text
 #  desirable          :text
 #  expirated          :boolean
@@ -40,9 +41,12 @@ class Job < ApplicationRecord
   self.table_name  = 'jobs'
   self.primary_key = 'id'
 
+  acts_as_paranoid
+
   after_create :set_expiration_date
 
   enum modality: %w[Presencial Remoto]
+  enum how_to_applu: %w[E-mail URL]
 
   scope :by_title, ->(title) { order('title LIKE ?', "%#{title}") }
   scope :recents,  -> { order(created_at: :desc) }
@@ -54,5 +58,6 @@ class Job < ApplicationRecord
 
   def set_expiration_date(date = Date.today + 12.day)
     self.expiration_date = date
+    save
   end
 end

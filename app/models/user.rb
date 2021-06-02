@@ -3,6 +3,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  admin                  :boolean
+#  deleted_at             :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  featured               :boolean
@@ -20,6 +22,8 @@
 class User < ApplicationRecord
   self.table_name  = 'users'
   self.primary_key = 'id'
+
+  acts_as_paranoid
 
   has_one  :profile, dependent: :destroy
   has_many :jobs, dependent: :destroy
