@@ -4,6 +4,7 @@
 #
 #  id                     :integer          not null, primary key
 #  admin                  :boolean
+#  cpf_or_cnpj            :string
 #  deleted_at             :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
@@ -40,4 +41,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates_uniqueness_of :cpf_or_cnpj
 end
