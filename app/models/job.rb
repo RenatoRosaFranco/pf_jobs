@@ -9,6 +9,7 @@
 #  desirable          :text
 #  expirated          :boolean
 #  expiration_date    :date
+#  featured           :boolean
 #  how_to_apply       :integer
 #  keywords           :string
 #  location           :string
@@ -54,6 +55,8 @@ class Job < ApplicationRecord
 
   belongs_to :hiring_type
   belongs_to :occupation_area
+  belongs_to :city
+  belongs_to :state
   belongs_to :user
 
   def set_expiration_date(date = Date.today + 12.day)

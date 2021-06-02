@@ -9,7 +9,7 @@
       .col-md-12
 
         .row{class: 'text-center'}
-          %h1{class: 'bold uppercase'} Temos #{rand(0..1_400)} vagas em aberto
+          %h1{class: 'bold uppercase'} Temos #{Job.all.count} vagas em aberto
           %p Encontre seu próximo trabalho de maneira bem simples.
           %br
 
@@ -56,7 +56,7 @@
                     .panel-body
                       %h2{class: 'bold'} Para Candidatos
                       %p As vagas de trabalho nunca esfriam
-                      %p Mais de #{rand(0..7_000)} empresas contratando.
+                      %p Mais de #{User.all.count} empresas contratando.
                       %br
 
                       = link_to 'Em Breve', '', class: 'btn btn-primary btn-lg top'
@@ -89,13 +89,13 @@
           .col-md-10{class: 'col-md-offset-1'}
 
             .row
-              - for i in 1..3
+              - User.all.each do |user|
                 .col-md-4
                   .panel{class: 'panel-default'}
                     .panel-heading
                       .jumbotron
                     .panel-body
-                      %p{class: 'pull-left'} Portal Fronteirico
+                      %p{class: 'pull-left'}= user.profile.name
                       %p{class: 'pull-right bold'}
                         = link_to "5 vaga(s)", ""
 
@@ -171,27 +171,27 @@
           %br
 
         .row
-          - for i in 1..4
+          - Job.all.limit(4).each do |job|
             .col-md-12
               .panel{class: 'panel-default'}
                 .panel-body
                   .col-md-3
                     .jumbotron{class: 'job-company-avatar'}
                   .col-md-7
-                    %h3{class: 'job-title bold'}= link_to 'Designer UX/UI', ''
+                    %h3{class: 'job-title bold'}= link_to job.title, ''
                     %ul{class: 'list-unstyled list-inline'}
                       %li
                         %i{class: ''}
-                        %p{class: 'bold job-company'} CEFIS
+                        %p{class: 'bold job-company'}= job.user.profile.name
                       %li
                         %i{class: ''}
                         %p{class: 'bold job-location'} São Borja, Rio Grande do Sul
 
-                    %p{class: 'job-description'} Achou nossas artes feias? Tranquilo, também concordamos! venha os ajudar a evoluir Vagas para Designer UI/UX na CEPS.
+                    %p{class: 'job-description'}= truncate(job.description, length: 145)
 
                   .col-md-2
-                    %p{class: '.job-date'} 29/02/2021
-                    %span{class: 'job-modality badge'} CLT Full
+                    %p{class: '.job-date'}= time_ago_in_words(job.created_at)
+                    %span{class: 'job-modality badge'}= job.hiring_type.name
 
 #newsletter
   .container

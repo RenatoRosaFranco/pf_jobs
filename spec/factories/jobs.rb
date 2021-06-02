@@ -9,6 +9,7 @@
 #  desirable          :text
 #  expirated          :boolean
 #  expiration_date    :date
+#  featured           :boolean
 #  how_to_apply       :integer
 #  keywords           :string
 #  location           :string

@@ -13,12 +13,12 @@ class JobsController < ApplicationController
   end
 
   def show
-    respond_with @job = nil
+    respond_with @job
   end
 
   private
 
   def set_job
-    # @job = Job.friendly.find(params[:id])
+    @job = Job.friendly.find(params[:id])
   end
 end

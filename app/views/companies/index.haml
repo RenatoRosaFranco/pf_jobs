@@ -31,17 +31,17 @@
       .col-md-12
 
         .row{class: 'text-center'}
-          %h3{class: 'bold'} #{rand(0..3_000)} Empresa(s)
+          %h3{class: 'bold'} #{User.all.count} Empresa(s)
           %br
 
         .row
-          - for i in 1..60
+          - User.all.each do |user|
             .col-md-4
               .panel{class: 'panel-default'}
                 .panel-heading
                   .jumbotron
                 .panel-body
-                  %p{class: 'pull-left'}=link_to 'Portal Fronteirico', company_path(i)
+                  %p{class: 'pull-left'}=link_to 'Portal Fronteirico', company_path(user)
                   %p{class: 'pull-right bold'}
                     = link_to "5 vaga(s)", ""
 

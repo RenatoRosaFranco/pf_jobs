@@ -1,6 +1,6 @@
-= provide :title, ''
-= provide :description, ''
-= provide :keywords, ''
+= provide :title, @job.title
+= provide :description, @job.description
+= provide :keywords, @job.keywords
 = provide :ld_json, {}
 
 %section{id: 'presenter', class: 'jumbotron'}
@@ -11,52 +11,52 @@
           .col-md-12{style: 'padding-left: 30px;'}
             = link_to 'Voltar', jobs_path, class: 'btn btn-primary btn-lg top'
 
-            %h2{class: 'bold'} Desenvolvedor PHP Laravel Junior
+            %h2{class: 'bold'}= @job.title
             %ul{class: 'list-unstyled list-inline'}
               %li
                 %i{class: 'fas fa-briefcase'}
-                %span Bitis
+                %span= @job.user.email
               %li
                 %i{class: 'fas fa-map-marker-alt'}
-                %span Remoto
+                %span= @job.modality
               %li
                 %i{class: 'far fa-calendar-alt'}
-                %span 29/05/2021
+                %span= time_ago_in_words(@job.created_at)
 
             %ul{class: 'list-unstyled list-inline'}
               %li
-                %span{class: 'badge'} CLT Full
+                %span{class: 'badge'}= @job.hiring_type.name
               %li{}
-                %span{class: 'badge'} Programação/Arquitetura
+                %span{class: 'badge'}= @job.occupation_area.name
 
 %section{class:'container'}
   .container
     .row
       .col-md-12
-      
+
         .row
           .col-md-8
             .row
               .col-md-12
                 %h2{class: 'job-heading bold'} Descrição da Vaga
-                %p{class: 'job-description'} Apenas uma descrição
+                %p{class: 'job-description'}= @job.description
 
               .col-md-12
                 %h2{class: 'job-heading bold'} Requisitos
-                %p{class: 'job-description'} Requisitos da vaga
+                %p{class: 'job-description'}= @job.requirements
 
               .col-md-12
                 %h2{class: 'job-heading bold'} Desejável
-                %p{class: 'job-description'} Desejável para a vaga
+                %p{class: 'job-description'}= @job.desirable
 
               .col-md-12
-                %h2{class: 'job-heading'} Outras informações
-                %p{class: 'job-description'} Outras informações
- 
+                %h2{class: 'job-heading bold'} Outras informações
+                %p{class: 'job-description'}= @job.others
+
             .row
               .col-md-12
                 %h2{class: 'job-heading bold'} Salário
-                %p{class: 'job-description'} a Combinar
+                %p{class: 'job-description'}= @job.salary
             %br
 
             .row
@@ -79,8 +79,8 @@
             .panel{class: 'panel-default'}
               .panel-body{class: 'text-center'}
                 .jumbotron
-                %h3{class: 'bold'} Sobre a Bitis
-                %p{class: 'text-left'} A Bitis é uma plataforma Saas de gestão comercial focada em atender as necessidades de micro e pequenas empresas em todo o Brasil.
+                %h3{class: 'bold'}= @job.user.profile.name
+                %p{class: 'text-left'}= @job.user.profile.description
                 %br
 
                 = link_to 'Perfil da Empresa', '', class: 'btn btn-primary btn-lg top'

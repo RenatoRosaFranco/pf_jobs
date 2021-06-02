@@ -37,12 +37,8 @@
                 %i{class: 'fas fa-caret-right'}
                 Refinar por Cidade
               %ul{class: 'list-unstyled'}
-                %li= link_to 'Remoto', ''
-                %li= link_to 'São Paulo', ''
-                %li= link_to 'Brasilia', ''
-                %li= link_to 'Rio de Janeiro', ''
-                %li= link_to 'Florianópolis', ''
-                %li= link_to 'Curitiba', ''
+                - City.all.limit(7).each do |city|
+                  %li= link_to city.name, ''
                 %li= link_to 'Mais', ''
 
           .row
@@ -51,13 +47,9 @@
                 %i{class: 'fas fa-caret-right'}
                 Refinar por Áreas de atuação
               %ul{class: 'list-unstyled'}
-                %li= link_to 'Programação/Arquitetura', ''
-                %li= link_to 'Redes/Infraestrutura', ''
-                %li= link_to 'Banco de Dados', ''
-                %li= link_to 'Gestão de TI', ''
-                %li= link_to 'Testes', ''
-                %li= link_to 'Inovação e Gestão', ''
-                %li= link_to 'Mais', ''
+                - OccupationArea.all.limit(7).each do |area|
+                  %li= link_to area.name, ''
+                %li= link_to 'Mais'
 
           .row
             .col-md-12
@@ -65,11 +57,8 @@
                 %i{class: 'fas fa-caret-right'}
                 Refinar por tipo de contratação
               %ul{class: 'list-unstyled'}
-                %li= link_to 'A combinar', ''
-                %li= link_to 'CLT Full', ''
-                %li= link_to 'PJ', ''
-                %li= link_to 'CLT Flex', ''
-                %li= link_to 'Estágio', ''
+                - HiringType.all.each do |type|
+                  %li= link_to type.name, ''
 
         .col-md-9
           .row
@@ -91,28 +80,28 @@
             .col-md-12
 
               .row
-                - for i in (1..20)
+                - Job.recents.limit(20).each do |job|
                   .col-md-12
                     .panel{class: 'panel-default'}
                       .panel-body
                         .col-md-3
                           .jumbotron{class: 'job-company-avatar'}
                         .col-md-7
-                          %h3{class: 'job-title bold'}= link_to 'Designer UX/UI', ''
+                          %h3{class: 'job-title bold'}= link_to job.title, job_path(job)
                           %ul{class: 'list-unstyled list-inline'}
                             %li
                               %i{class: 'bold fas fa-briefcase'}
-                              %span{class: 'bold job-company'} CEFIS
+                              %span{class: 'bold job-company'}= job.user.profile.name
                             %li
                               %i{class: 'bold fas fa-map-marker-alt'}
-                              %span{class: 'bold job-location'} São Borja, Rio Grande do Sul
+                              %span{class: 'bold job-location'}"#{job.city.name}, #{job.state.name}"
 
-                          %p{class: 'job-description'} Achou nossas artes feias? Tranquilo, também concordamos! venha os ajudar a evoluir Vagas para Designer UI/UX na CEPS.
+                          %p{class: 'job-description'}= truncate(job.description, length: 145)
 
                         .col-md-2
-                          %p{class: '.job-date'} 29/02/2021
-                          %span{class: 'job-modality badge'} CLT Full
-        
+                          %p{class: '.job-date'}= time_ago_in_words(job.created_at)
+                          %span{class: 'job-modality badge'}= job.hiring_type.name
+
             .row
               .text-center
                 = link_to 'Carregar mais', '', class: 'btn btn-primary btn-lg top'
