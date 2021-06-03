@@ -83,7 +83,7 @@
 
                       = link_to 'Começar agora', new_user_session_path, class: 'btn btn-primary btn-lg top'
 
-#companies{style: 'margin-bottom: 30px;'}
+#companies
   .container
     .row
       .col-md-12
@@ -99,14 +99,15 @@
 
             .row
               - User.all.each do |user|
-                .col-md-4
-                  .panel{class: 'panel-default'}
-                    .panel-heading
-                      .jumbotron
-                    .panel-body
-                      %p{class: 'pull-left'}= user.profile.name
-                      %p{class: 'pull-right bold'}
-                        = link_to "5 vaga(s)", ""
+                - for i in 1..3
+                  .col-md-4
+                    .panel{class: 'panel-default', id: 'company-block'}
+                      .panel-heading{class: 'company-header'}
+                        = image_tag('logo.jpg', class: 'company-logo')
+                      .panel-body
+                        %p{class: 'company-name pull-left'}= user.profile.name
+                        %p{class: 'company-jobs-counter pull-right bold'}
+                          = link_to "5 vaga(s)", ""
 
 #new-job{class: 'jumbotron'}
   .container
@@ -212,23 +213,25 @@
 
         .row
           .col-md-6
-            %h3{class: 'bold uppercase'} Receba alertas de vagas
-            %p{class: 'alert alert-default'} Receba alertas de vagas diretamente em seu email.
-            %p Você poderá descadastrar-se a qualquer momento.
+            .col-md-offset-2{class: 'col-md-10'}
+              %h3{class: 'bold uppercase'} Receba alertas de vagas
+              %p{class: 'alert alert-info'} Receba alertas de vagas diretamente em seu email.
+              %p{class: 'alert-description'} Você poderá descadastrar-se a qualquer momento.
 
           .col-md-6
-            .panel.panel-default
-              .panel-body
-                = form_for(:newsletter) do |f|
-                  .field
-                    = f.email_field :email, class: 'form-control',
-                    required: 'required', placeholder: 'Seu e-mail'
-                  %br
+            .col-md-offset-1{class: 'col-md-9'}
+              .panel.panel-default
+                .panel-body{id: 'newsletter-form'}
+                  = form_for(:newsletter, {url: '', method: :post}) do |f|
+                    .field
+                      = f.email_field :email, class: 'form-control',
+                      required: 'required', placeholder: 'Seu e-mail'
+                    %br
 
-                  .field
-                    = f.select(:email, {},
-                    { prompt: 'Selecionar'}, {class: 'form-control'})
-                  %br
+                    .field
+                      = f.select(:email, { 'Diário': 'Diário', 'Mensal': 'Mensal', 'Semanal': 'Semanal' },
+                      { prompt: 'Selecionar'}, {class: 'form-control'})
+                    %br
 
-                  .field{class: 'text-center'}
-                    = f.submit 'Criar Alerta', class: 'btn btn-primary btn-lg top'
+                    .field{class: 'text-center'}
+                      = f.submit 'Criar Alerta', class: 'btn btn-primary btn-lg top'

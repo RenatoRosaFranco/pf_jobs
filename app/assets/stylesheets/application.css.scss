@@ -53,11 +53,15 @@
    text-transform: uppercase;
  }
 
+
+
  #presenter {
    position: relative;
    background-color: $primary-color;
    color: #FFF;
    margin-top: -20px;
+   padding-top: 100px;
+   padding-bottom: 100px;
 
    form {
      position: relative;
@@ -75,8 +79,21 @@
 
  .primary-color { color: $primary-color }
 
+ #companies {
+   position: relative;
+   margin-bottom: 30px;
+
+   h3 {
+     position: relative;
+     font-weight: bold;
+     margin-bottom: 10px;
+     color: #999;
+   }
+ }
+
  #branding {
    position: relative;
+   padding-bottom: 45px;
 
    #brand-block {
      position: relative;
@@ -248,4 +265,73 @@
    position: relative;
    color: #B7B7B7;
  }
+}
+
+#company-block {
+  position: relative;
+
+  .panel-heading {
+    position: relative;
+    background-color: #FFF;
+  }
+
+  .panel-body {
+    position: relative;
+    padding-bottom: 8px;
+  }
+
+  .company-logo {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-left: 50px;
+  }
+
+  .company-name {
+    position: relative;
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+}
+
+#newsletter {
+  position: relative;
+  background-color: #fbfbfb;
+  padding-top: 50px;
+
+  h3 {
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .alert-description {
+    padding-top: 10px;
+    position: relative;
+    font-size: 16px;
+    color: #B7B7B7;
+  }
+
+  #newsletter-form {
+    position: relative;
+    padding: 40px;
+  }
+
+  form {
+    position: relative;
+
+    input[type=email], select {
+      position: relative;
+      background-color: #fbfbfb;
+      height: 44px;
+    }
+
+    input[type=submit] {
+      position: relative;
+      font-size: 15px;
+      background-color: $primary-color;
+      text-transform: uppercase;
+      border-color: $primary-color;
+      font-weight: bold;
+    }
+  }
 }
