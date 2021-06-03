@@ -29,7 +29,7 @@
                   .col-md-4
                     .input-group
                       .input-group-addon
-                        %i{class: 'fas fa-hashtag'}
+                        %i{class: 'fas fa-map-marker-alt'}
                       = f.text_field :location, class: 'form-control no-border-left',
                       placeholder: 'Local'
 
@@ -177,31 +177,33 @@
       .col-md-12
 
         .row{class: 'text-center'}
-          %h2{class: 'bold uppercase'} Últimas Vagas Publicadas
+          %h3{class: 'bold uppercase'} Últimas Vagas Publicadas
           %br
 
         .row
-          - Job.all.limit(4).each do |job|
-            .col-md-12
-              .panel{class: 'panel-default'}
-                .panel-body
-                  .col-md-3
-                    .jumbotron{class: 'job-company-avatar'}
-                  .col-md-7
-                    %h3{class: 'job-title bold'}= link_to job.title, ''
-                    %ul{class: 'list-unstyled list-inline'}
-                      %li
-                        %i{class: ''}
-                        %p{class: 'bold job-company'}= job.user.profile.name
-                      %li
-                        %i{class: ''}
-                        %p{class: 'bold job-location'} São Borja, Rio Grande do Sul
+          .col-md-10{class: 'col-md-offset-1'}
+            - Job.all.limit(4).each do |job|
+              .col-md-12{id: 'job-block'}
+                .panel{class: 'panel-default'}
+                  .panel-body
+                    .col-md-2
+                      = image_tag('logo.jpg', class: 'md-logo')
+                    .col-md-8
+                      %h4{class: 'job-title bold'}= link_to job.title, job_path(job)
+                      %ul{class: 'list-unstyled list-inline'}
+                        %li
+                          %i{class: 'bold fas fa-briefcase'}
+                          %span{class: 'bold job-company'}= job.user.profile.name
+                        %li
+                          %i{class: 'bold fas fa-map-marker-alt'}
+                          %span{class: 'bold job-location'} São Borja, Rio Grande do Sul
 
-                    %p{class: 'job-description'}= truncate(job.description, length: 145)
+                      %p{class: 'job-description'}= truncate(job.description, length: 145)
 
-                  .col-md-2
-                    %p{class: '.job-date'}= time_ago_in_words(job.created_at)
-                    %span{class: 'job-modality badge'}= job.hiring_type.name
+                    .col-md-2
+                      %p{class: '.job-date'}= format_date(job.created_at)
+                      %span{class: 'job-modality badge'}= job.hiring_type.name
+
 
 #newsletter
   .container

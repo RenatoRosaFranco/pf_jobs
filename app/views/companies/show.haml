@@ -53,7 +53,7 @@
                           .col-md-12
                             .panel{class: 'panel-default'}
                               .panel-body
-                                .col-md-10
+                                .col-md-10{id: 'job-block'}
                                   %h4{class: 'job-title bold'}= link_to job.title, job_path(job)
                                   %ul{class: 'list-unstyled list-inline'}
                                     %li
@@ -66,7 +66,7 @@
                                   %p{class: 'job-description'}= truncate(job.description, length: 145)
 
                                 .col-md-2
-                                  %p{class: '.job-date'}= time_ago_in_words(job.created_at)
+                                  %p{class: 'job-date'}= format_date(job.created_at)
                                   %span{class: 'job-modality badge'}= job.hiring_type.name
 
                     #load-more

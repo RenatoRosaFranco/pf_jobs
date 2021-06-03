@@ -91,7 +91,7 @@
           .row
             .col-md-12
               .panel{class: 'panel-default'}
-                .panel-body
+                .panel-body{id: 'alert-box'}
                   = form_for(:alert) do |f|
                     .col-md-4
                       %h5{class: 'bold'} Receber email para vagas desse tipo
@@ -114,10 +114,10 @@
                   .col-md-12{id: 'job-block'}
                     .panel{class: 'panel-default'}
                       .panel-body
-                        .col-md-3
-                          .jumbotron
-                        .col-md-7
-                          %h3{class: 'job-title bold'}= link_to job.title, job_path(job)
+                        .col-md-2
+                          = image_tag('logo.jpg', class: 'md-logo')
+                        .col-md-8
+                          %h4{class: 'job-title bold'}= link_to job.title, job_path(job)
                           %ul{class: 'list-unstyled list-inline'}
                             %li
                               %i{class: 'bold fas fa-briefcase'}
@@ -129,7 +129,7 @@
                           %p{class: 'job-description'}= truncate(job.description, length: 145)
 
                         .col-md-2
-                          %p{class: '.job-date'}= time_ago_in_words(job.created_at)
+                          %p{class: 'job-date'}= format_date(job.created_at)
                           %span{class: 'job-modality badge'}= job.hiring_type.name
 
             .row
