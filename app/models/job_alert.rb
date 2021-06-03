@@ -11,7 +11,7 @@
 #
 class JobAlert < ApplicationRecord
   self.table_name   = 'job_alerts'
-  self.primary?_key = 'id'
+  self.primary_key  = 'id'
 
   validates_uniqueness_of :email
 end
