@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_150212) do
+ActiveRecord::Schema.define(version: 2021_06_03_194714) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,11 @@ ActiveRecord::Schema.define(version: 2021_06_03_150212) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "alerteable_id"
+    t.string "alerteable_type"
+    t.integer "modality", default: 0
+    t.boolean "status"
+    t.string "token"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -150,6 +155,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_150212) do
     t.boolean "admin"
     t.datetime "deleted_at"
     t.string "cpf_or_cnpj"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

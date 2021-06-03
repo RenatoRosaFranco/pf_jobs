@@ -9,6 +9,7 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  featured               :boolean
+#  name                   :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -37,6 +38,8 @@ class User < ApplicationRecord
   scope :featured, -> { where(featured: true) }
 
   after_create :create_profile
+
+  has_many :alerts, class_name: 'JobAlert', as: :alerteable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

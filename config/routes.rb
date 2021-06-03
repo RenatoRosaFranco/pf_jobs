@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resources :companies, only: %i[index show]
   resources :courses, only: %i[index]
 
+  # Actions
+  # @implemented
+  resources :job_alerts, only: [:create]
+
   # Dashboard
   # @implemented
   namespace :dashboard do

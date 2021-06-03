@@ -92,7 +92,7 @@
             .col-md-12
               .panel{class: 'panel-default'}
                 .panel-body{id: 'alert-box'}
-                  = form_for(:alert) do |f|
+                  = form_for(:alert, { url: job_alerts_path, method: :post }) do |f|
                     .col-md-4
                       %h5{class: 'bold'} Receber email para vagas desse tipo
 

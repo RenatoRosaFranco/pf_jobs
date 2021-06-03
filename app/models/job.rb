@@ -49,9 +49,10 @@ class Job < ApplicationRecord
   enum modality: %w[Presencial Remoto]
   enum how_to_applu: %w[E-mail URL]
 
-  scope :by_title, ->(title) { order('title LIKE ?', "%#{title}") }
-  scope :recents,  -> { order(created_at: :desc) }
-  scope :active,   -> { where(expirated: false) }
+  scope :by_title,    ->(title) { order('title LIKE ?', "%#{title}") }
+  scope :by_location, ->(location) { where(location: location) }
+  scope :recents,     -> { order(created_at: :desc) }
+  scope :active,      -> { where(expirated: false) }
 
   belongs_to :hiring_type
   belongs_to :occupation_area

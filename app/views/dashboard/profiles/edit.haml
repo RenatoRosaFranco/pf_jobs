@@ -7,4 +7,36 @@
   .container
     .row
       .col-md-12
-        = render 'form', profile: @profile
+
+        .row
+          .col-md-7{class: 'col-md-offset-2'}
+            %h4{class: 'bold uppercase'} Perfil da Empresa
+            %br
+
+            .panel{class: 'panel-default'}
+              .panel-body
+                = render 'form', profile: @profile
+
+        .row
+          .col-md-7{class: 'col-md-offset-2'}
+            %h4{class: 'bold uppercase'} Usuário Responsável
+            %br
+
+            .panel{class: 'panel-default'}
+              .panel-body
+                %table{class: 'table'}
+                  %thead
+                    %th Id
+                    %th Nome
+                    %th Email
+                    %th Ações
+                  %tbody
+                    %tr
+                      %td= @profile.user.id
+                      %td{class: 'bold'}= @profile.user.name
+                      %td= link_to @profile.user.email, "mailto:#{@profile.user.email}"
+                      %td
+                        %a{class: 'btn btn-default'}
+                          Editar
+
+
