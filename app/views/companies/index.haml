@@ -14,12 +14,18 @@
                 = form_for(:company, { url: companies_path, method: :get }) do |f|
 
                   .col-md-4
-                    = f.text_field :name, class: 'form-control',
-                    placeholder: 'Nome da Empresa'
+                    .input-group
+                      .input-group-addon
+                        %i{class: 'far fa-building'}
+                      = f.text_field :name, class: 'form-control no-border-left',
+                      placeholder: 'Nome da Empresa'
 
                   .col-md-4
-                    = f.text_field :location, class: 'form-control',
-                    placeholder: 'Local'
+                    .input-group
+                      .input-group-addon
+                        %i{class: 'fas fa-map-marker-alt'}
+                      = f.text_field :location, class: 'form-control no-border-left',
+                      placeholder: 'Local'
 
                   .col-md-4
                     = f.submit 'Buscar Empresas',

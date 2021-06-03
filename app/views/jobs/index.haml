@@ -14,12 +14,18 @@
                 = form_for(:job, { url: jobs_path, method: :get }) do |f|
 
                   .col-md-4
-                    = f.text_field :keywords, class: 'form-control',
-                    placeholder: 'Palavras-chave'
+                    .input-group
+                      .input-group-addon
+                        %i{class: 'fas fa-hashtag'}
+                      = f.text_field :keywords, class: 'form-control no-border-left',
+                      placeholder: 'Palavras-chave'
 
                   .col-md-4
-                    = f.text_field :location, class: 'form-control',
-                    placeholder: 'Local'
+                    .input-group
+                      .input-group-addon
+                        %i{class: 'fas fa-map-marker-alt'}
+                      = f.text_field :location, class: 'form-control no-border-left',
+                      placeholder: 'Local'
 
                   .col-md-4
                     = f.submit 'Buscar Vagas',
@@ -34,31 +40,52 @@
           .row
             .col-md-12
               %h4{class: 'bold'}
-                %i{class: 'fas fa-caret-right'}
+                %i{class: 'fas fa-caret-right primary-color'}
                 Refinar por Cidade
               %ul{class: 'list-unstyled'}
                 - City.all.limit(7).each do |city|
-                  %li= link_to city.name, ''
-                %li= link_to 'Mais', ''
+                  %li{class: 'list-item'}
+                    %a{href: jobs_path}
+                      #{city.name}
+                      %span{class: 'bold'}
+                        (#{city.jobs.count})
+
+                %li{class: 'list-item'}
+                  %a{href: ''}
+                    Mais
+                    %i{class: 'fas fa-chevron-down'}
 
           .row
             .col-md-12
               %h4{class: 'bold'}
-                %i{class: 'fas fa-caret-right'}
+                %i{class: 'fas fa-caret-right primary-color'}
                 Refinar por Áreas de atuação
               %ul{class: 'list-unstyled'}
                 - OccupationArea.all.limit(7).each do |area|
-                  %li= link_to area.name, ''
-                %li= link_to 'Mais'
+                  %li{class: 'list-item'}
+                    %a{href: jobs_path}
+                      #{area.name}
+                      %span{class: 'bold'}
+                        (#{area.jobs.count})
+
+                %li{class: 'list-item'}
+                  %a{href: ''}
+                    Mais
+                    %i{class: 'fas fa-chevron-down'}
 
           .row
             .col-md-12
               %h4{class: 'bold'}
-                %i{class: 'fas fa-caret-right'}
+                %i{class: 'fas fa-caret-right primary-colo'}
                 Refinar por tipo de contratação
               %ul{class: 'list-unstyled'}
                 - HiringType.all.each do |type|
-                  %li= link_to type.name, ''
+                  %li{class: 'list-item'}
+                    %a{href: jobs_path}
+                      #{type.name}
+                      %span{class: 'bold'}
+                        (#{type.jobs.count})
+
 
         .col-md-9
           .row
@@ -70,8 +97,11 @@
                       %h5{class: 'bold'} Receber email para vagas desse tipo
 
                     .col-md-5
-                      = f.email_field :email, class: 'form-control', required: 'required',
-                      placeholder: "Seu email"
+                      .input-group
+                        .input-group-addon
+                          %i{class: 'far fa-paper-plane'}
+                        = f.email_field :email, class: 'form-control no-border-left', required: 'required',
+                        placeholder: "Seu email"
 
                     .col-md-3
                       = f.submit 'Criar Alerta', class: 'btn btn-primary btn-lg top'
@@ -81,10 +111,11 @@
 
               .row
                 - Job.recents.limit(20).each do |job|
-                  .col-md-12
+                  .col-md-12{id: 'job-block'}
                     .panel{class: 'panel-default'}
                       .panel-body
-
+                        .col-md-3
+                          .jumbotron
                         .col-md-7
                           %h3{class: 'job-title bold'}= link_to job.title, job_path(job)
                           %ul{class: 'list-unstyled list-inline'}

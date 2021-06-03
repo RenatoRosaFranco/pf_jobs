@@ -20,12 +20,18 @@
                 = form_for(:search, { url: jobs_path, method: :get}) do |f|
 
                   .col-md-4
-                    = f.text_field :keywords, class: 'form-control',
-                    placeholder: 'Palavras-chave'
+                    .input-group
+                      .input-group-addon
+                        %i{class: 'fas fa-hashtag'}
+                      = f.text_field :keywords, class: 'form-control no-border-left',
+                      placeholder: 'Palavras-chave'
 
                   .col-md-4
-                    = f.text_field :location, class: 'form-control',
-                    placeholder: 'Local'
+                    .input-group
+                      .input-group-addon
+                        %i{class: 'fas fa-hashtag'}
+                      = f.text_field :location, class: 'form-control no-border-left',
+                      placeholder: 'Local'
 
                   .col-md-4
                     = f.submit 'Buscar Vagas',
@@ -36,21 +42,24 @@
     .row
       .col-md-12
 
-        .row
+        .row{id: 'brand-block'}
           .col-md-12
 
             .col-md-3{class: 'text-center'}
-              %h3{class: 'bold'} Portal Fronteiriço
+              .pull-left
+                = image_tag('logo.jpg', class: 'logo')
+              %h4{class: 'bold primary-color'} Portal Fronteiriço
+              %small{class: 'text-left'} São Borja, RS
 
             .col-md-9
               %h4{class: 'bold'} A plataforma mais completa de recrutamento que reúne os
               %h4{class: 'bold'} profissionais do futuro às carreiras do amanhã.
         %br
 
-        .row
+        .row{id: 'modality'}
           .col-md-6
             .panel.panel-default
-              .panel-body{style: 'background-color: #EEE;'}
+              .panel-body{class: 'box box-background'}
                 .inner-box{class: 'col-md-8'}
                   .panel{class: 'panel-default'}
                     .panel-body
@@ -59,11 +68,11 @@
                       %p Mais de #{User.all.count} empresas contratando.
                       %br
 
-                      = link_to 'Em Breve', '', class: 'btn btn-primary btn-lg top'
+                      = link_to 'Em Breve', '#', class: 'btn btn-primary btn-lg top'
 
           .col-md-6
             .panel.panel-default
-              .panel-body{style: 'background-color: #EEE;'}
+              .panel-body{class: 'box box-background'}
                 .inner-box{class: 'col-md-8'}
                   .panel{class: 'panel-default'}
                     .panel-body
@@ -72,7 +81,7 @@
                       %p profissionais sem perder tempo.
                       %br
 
-                      = link_to 'Começar agora', '', class: 'btn btn-primary btn-lg top'
+                      = link_to 'Começar agora', new_user_session_path, class: 'btn btn-primary btn-lg top'
 
 #companies{style: 'margin-bottom: 30px;'}
   .container
@@ -108,6 +117,7 @@
 
         = link_to 'Publicar Vaga', new_dashboard_job_path, class: 'btn btn-primary btn-lg top'
 
+
 #academy
   .container
     .row
@@ -134,7 +144,7 @@
             %br
 
             %br 
-            = link_to 'Em Breve', '', class: 'btn btn-primary btn-lg top'
+            = link_to 'Em Breve', '#', class: 'btn btn-primary btn-lg top'
 
           .col-md-8
             .col-md-12

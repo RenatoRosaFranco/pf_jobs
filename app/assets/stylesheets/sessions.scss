@@ -1,0 +1,57 @@
+$primary-color: #00315c;
+
+.sessions, .registrations {
+  position: relative;
+  background-color: $primary-color;
+
+  .panel-default {
+    position: relative;
+    margin-top: 40px;
+
+    .logo {
+      position: relative;
+      padding-top: 10px;
+      margin-right: 20px;
+      width: 74px;
+    }
+
+    h2 {
+      color: $primary-color;
+    }
+
+    form {
+      position: relative;
+
+      label {
+        position: relative;
+        margin-top: 8px;
+        margin-bottom: 8px
+      }
+
+      input[type=email], input[type=password] {
+        position: relative;
+        padding: 18px;
+      }
+
+      input[type=submit] {
+        position: relative;
+        color: #FFF;
+        border: 3px solid $primary-color;
+        background-color: $primary-color;
+        border-radius: 25px;
+        font-weight: bold;
+        width: 100%;
+        margin-top: 15px;
+        transition: 0.5s;
+
+        &.over, &:hover {
+          position: relative;
+          background-color: $primary-color;
+          transition: 0.5s;
+          color: #FFF;
+        }
+      }
+    }
+
+  }
+}

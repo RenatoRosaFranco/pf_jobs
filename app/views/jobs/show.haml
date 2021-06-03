@@ -11,7 +11,7 @@
           .col-md-12{style: 'padding-left: 30px;'}
             = link_to 'Voltar', jobs_path, class: 'btn btn-primary btn-lg top'
 
-            %h2{class: 'bold'}= @job.title
+            %h2{class: 'bold text-uppercase'}= @job.title
             %ul{class: 'list-unstyled list-inline'}
               %li
                 %i{class: 'fas fa-briefcase'}
@@ -39,18 +39,22 @@
             .row
               .col-md-12
                 %h2{class: 'job-heading bold'} Descrição da Vaga
+                %hr
                 %p{class: 'job-description'}= @job.description
 
               .col-md-12
                 %h2{class: 'job-heading bold'} Requisitos
+                %hr
                 %p{class: 'job-description'}= @job.requirements
 
               .col-md-12
                 %h2{class: 'job-heading bold'} Desejável
+                %hr
                 %p{class: 'job-description'}= @job.desirable
 
               .col-md-12
                 %h2{class: 'job-heading bold'} Outras informações
+                %hr
                 %p{class: 'job-description'}= @job.others
 
             .row
