@@ -17,7 +17,7 @@
           .col-md-8{class: 'col-md-offset-2'}
             .panel{class: 'panel-default'}
               .panel-body
-                = form_for(:search) do |f|
+                = form_for(:search, { url: jobs_path, method: :get}) do |f|
 
                   .col-md-4
                     = f.text_field :keywords, class: 'form-control',

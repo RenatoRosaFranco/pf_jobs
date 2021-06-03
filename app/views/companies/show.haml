@@ -11,14 +11,17 @@
           .col-md-12{style: 'padding-left: 30px;'}
             = link_to 'Voltar', jobs_path, class: 'btn btn-primary btn-lg top'
 
-            %h2{class: 'bold'} Desenvolvedor PHP Laravel Junior
-            %ul{class: 'list-unstyled list-inline'}
-              %li
-                %i{class: 'fas fa-map-marker-alt'}
-                %span São Borja, Rio Grande do Sul
-              %li
-                %i{class: 'fas fa-globe-americas'}
-                %span https://portalfronteirico.com
+            .col-md-2
+              .jumbotron{style: 'background-color: #CCC; height: 130px;'}
+            .col-md-10
+              %h2{class: 'bold'} #{@company.profile.name}
+              %ul{class: 'list-unstyled list-inline'}
+                %li
+                  %i{class: 'fas fa-map-marker-alt'}
+                  %span #{@company.profile.city.name}, #{@company.profile.state.name}
+                %li
+                  %i{class: 'fas fa-globe-americas'}
+                  %span #{@company.profile.website}
 
 %section{class:'container'}
   .container
@@ -29,35 +32,52 @@
           .col-md-7
             .row
               .col-md-12
-                %h2{class: 'job-heading bold'} Descrição da Vaga
-                %p{class: 'job-description'} Apenas uma descrição
+                .navigation
+                  %ul{class: 'nav nav-tabs', role: 'tablist'}
+                    %li{class: 'active', role: 'presentation'}
+                      %a{href: '#description', 'aria-controls': 'description', role: 'tab', 'data-toggle': 'tab'}
+                        Descrição da Empresa
 
+                    %li{role: 'presentation'}
+                      %a{href: '#jobs', 'aria-controls': 'description', role: 'tab', 'data-toggle': 'tab'}
+                        Vagas(#{@company.jobs.count})
             .row
-              .col-md-12
-                %h2{class: 'job-heading bold'} Salário
-                %p{class: 'job-description'} a Combinar
-            %br
+              .col-md-12{style: 'padding-top: 40px; padding-bottom: 30px;'}
+                .tab-content
+                  .tab-pane{role: 'tabpanel', class: 'active', id: 'description'}
+                    = @company.profile.description
+                  .tab-pane{role: 'tabpanel', id: 'jobs'}
+                    #jobs
+                      .row
+                        - @company.jobs.limit(7).each do |job|
+                          .col-md-12
+                            .panel{class: 'panel-default'}
+                              .panel-body
+                                .col-md-10
+                                  %h4{class: 'job-title bold'}= link_to job.title, job_path(job)
+                                  %ul{class: 'list-unstyled list-inline'}
+                                    %li
+                                      %i{class: 'bold fas fa-briefcase'}
+                                      %span{class: 'bold job-company'}= job.user.profile.name
+                                    %li
+                                      %i{class: 'bold fas fa-map-marker-alt'}
+                                      %span{class: 'bold job-location'}"#{job.city.name}, #{job.state.name}"
 
-            .row
-              .col-md-12
-                .panel{class: 'panel-default'}
-                  .panel-body
-                    = form_for(:alert) do |f|
-                      .col-md-4
-                        %h5{class: 'bold'} Receber email para vagas desse tipo
+                                  %p{class: 'job-description'}= truncate(job.description, length: 145)
 
-                      .col-md-5
-                        = f.email_field :email, class: 'form-control', required: 'required',
-                        placeholder: "Seu email"
+                                .col-md-2
+                                  %p{class: '.job-date'}= time_ago_in_words(job.created_at)
+                                  %span{class: 'job-modality badge'}= job.hiring_type.name
 
-                      .col-md-3
-                        = f.submit 'Criar Alerta', class: 'btn btn-primary btn-lg top'
+                    #load-more
+                      .text-center
+                        = link_to 'Carregar Mais', '', class: 'btn btn-primary btn-lg top'
 
 
           .col-md-3{class: 'col-md-offset-1', style: 'margin-top: -100px;'}
             .panel{class: 'panel-default'}
               .panel-body{class: 'text-center'}
-                %h4{class: 'bold'} Envie-me vagas de Sine
+                %h4{class: 'bold'} Envie-me vagas de #{@company.profile.name}
                 %br
 
                 = form_for(:newsletter) do |f|

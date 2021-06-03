@@ -11,7 +11,7 @@
           .col-md-8{class: 'col-md-offset-2'}
             .panel{class: 'panel-default'}
               .panel-body
-                = form_for(:job) do |f|
+                = form_for(:job, { url: jobs_path, method: :get }) do |f|
 
                   .col-md-4
                     = f.text_field :keywords, class: 'form-control',
@@ -22,7 +22,7 @@
                     placeholder: 'Local'
 
                   .col-md-4
-                    = f.submit 'Buscar Vagas', 
+                    = f.submit 'Buscar Vagas',
                     class: 'btn btn-primary btn-lg top'
 
 #section{class: 'content'}
@@ -84,8 +84,7 @@
                   .col-md-12
                     .panel{class: 'panel-default'}
                       .panel-body
-                        .col-md-3
-                          .jumbotron{class: 'job-company-avatar'}
+
                         .col-md-7
                           %h3{class: 'job-title bold'}= link_to job.title, job_path(job)
                           %ul{class: 'list-unstyled list-inline'}

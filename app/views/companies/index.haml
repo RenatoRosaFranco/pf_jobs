@@ -11,7 +11,7 @@
           .col-md-8{class: 'col-md-offset-2'}
             .panel{class: 'panel-default'}
               .panel-body
-                = form_for(:company) do |f|
+                = form_for(:company, { url: companies_path, method: :get }) do |f|
 
                   .col-md-4
                     = f.text_field :name, class: 'form-control',
@@ -41,9 +41,10 @@
                 .panel-heading
                   .jumbotron
                 .panel-body
-                  %p{class: 'pull-left'}=link_to 'Portal Fronteirico', company_path(user)
+                  %p{class: 'pull-left'}=link_to user.profile.name, company_path(user)
                   %p{class: 'pull-right bold'}
-                    = link_to "5 vaga(s)", ""
+                    %a{href: '', class: 'bold'}
+                      #{user.jobs.count} Vaga(s)
 
         .row
           .text-center
