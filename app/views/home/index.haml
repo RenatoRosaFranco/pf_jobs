@@ -99,15 +99,14 @@
 
             .row
               - User.all.each do |user|
-                - for i in 1..3
-                  .col-md-4
-                    .panel{class: 'panel-default', id: 'company-block'}
-                      .panel-heading{class: 'company-header'}
-                        = image_tag('logo.jpg', class: 'company-logo')
-                      .panel-body
-                        %p{class: 'company-name pull-left'}= user.profile.name
-                        %p{class: 'company-jobs-counter pull-right bold'}
-                          = link_to "5 vaga(s)", ""
+                .col-md-4
+                  .panel{class: 'panel-default', id: 'company-block'}
+                    .panel-heading{class: 'company-header'}
+                      = image_tag('logo.jpg', class: 'company-logo')
+                    .panel-body
+                      %p{class: 'company-name pull-left'}= user.profile.name
+                      %p{class: 'company-jobs-counter pull-right bold'}
+                        = link_to "5 vaga(s)", ""
 
 #new-job{class: 'jumbotron'}
   .container
