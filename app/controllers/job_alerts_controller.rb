@@ -11,6 +11,6 @@ class JobAlertsController < ApplicationController
   private
 
   def alert_params
-    params.require(:alert).permit(:email)
+    params.require(:alert).permit(:email, :alerteable_id, :alerteable_type)
   end
 end

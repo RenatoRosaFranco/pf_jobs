@@ -104,9 +104,10 @@
                     .panel-heading{class: 'company-header'}
                       = image_tag('logo.jpg', class: 'company-logo')
                     .panel-body
-                      %p{class: 'company-name pull-left'}= user.profile.name
+                      %p{class: 'company-name pull-left'}= link_to user.profile.name, company_path(user)
                       %p{class: 'company-jobs-counter pull-right bold'}
-                        = link_to "5 vaga(s)", ""
+                        %a{href: '', class: 'bold'}
+                          #{user.jobs.count} Vaga(s)
 
 #new-job{class: 'jumbotron'}
   .container
@@ -116,6 +117,7 @@
         %p Os profissionais poderão se candidatar imediatamente.
 
         = link_to 'Publicar Vaga', new_dashboard_job_path, class: 'btn btn-primary btn-lg top'
+
 
 #jobs{style: 'margin-top: 50px; margin-bottom: 50px;'}
   .container

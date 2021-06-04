@@ -9,10 +9,10 @@
       .col-md-12
         .row
           .col-md-12{style: 'padding-left: 30px;'}
-            = link_to 'Voltar', jobs_path, class: 'btn btn-primary btn-lg top'
+            = link_to 'Voltar', jobs_path, class: 'btn btn-primary btn-lg top btn-back'
 
             .col-md-2
-              .jumbotron{style: 'background-color: #CCC; height: 130px;'}
+              = image_tag('logo.jpg', class: 'logo', height: 130, width: 130)
             .col-md-10
               %h2{class: 'bold'} #{@company.profile.name}
               %ul{class: 'list-unstyled list-inline'}
@@ -21,7 +21,7 @@
                   %span #{@company.profile.city.name}, #{@company.profile.state.name}
                 %li
                   %i{class: 'fas fa-globe-americas'}
-                  %span #{@company.profile.website}
+                  =link_to @company.profile.website, @company.profile.website, target: '_blank'
 
 %section{class:'container'}
   .container
@@ -80,15 +80,21 @@
                 %h4{class: 'bold'} Envie-me vagas de #{@company.profile.name}
                 %br
 
-                = form_for(:newsletter) do |f|
+                = form_for(:alert, { url: job_alerts_path, method: :post}) do |f|
                   .field
-                    = f.email_field :email, class: 'form-control',
-                    required: 'required', placeholder: 'Seu e-mail'
+                    .input-group
+                      .input-group-addon
+                        %i{class: 'fas fa-at'}
+                      = f.email_field :email, class: 'form-control no-border-left',
+                      required: 'required', placeholder: 'Seu e-mail'
                   %br
 
                   .field
-                    = f.select(:email, {'Diario': 'Diario', 'Semanal': 'Semanal', 'Mensal': 'Mensal'},
-                    { prompt: 'Selecionar'}, {class: 'form-control'})
+                    .input-group
+                      .input-group-addon
+                        %i{class: 'fas fa-mail-bulk'}
+                      = f.select(:email, {'Diario': 'Diario', 'Semanal': 'Semanal', 'Mensal': 'Mensal'},
+                      { prompt: 'Selecionar'}, {class: 'form-control no-border-left'})
                   %br
 
                   .field

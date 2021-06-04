@@ -1,0 +1,42 @@
+$primary-color: #00315c;
+
+.companies {
+  position: relative;
+
+  .logo {
+    position: relative;
+    border-radius: 80px;
+  }
+
+  .btn-back {
+    position: relative;
+    margin-left: 15px;
+    border: 3px solid #357ebd;
+    width: 120px;
+    background-color: #00315c;
+    font-weight: bold;
+    color: #FFF;
+  }
+
+  .navigation {
+    position: relative;
+    li {
+      a {
+        position: relative;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+  }
+
+  form {
+    position: relative;
+
+    input[type=submit] {
+      position: relative;
+      border: 1px solid #00315c;
+      background-color: $primary-color;
+      width: 100%;
+    }
+  }
+}

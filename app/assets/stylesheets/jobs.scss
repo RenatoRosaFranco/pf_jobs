@@ -1,3 +1,14 @@
-.jobs {
+$primary-color: #03351c;
 
+.jobs {
+  position: relative;
+
+  form {
+    position: relative;
+
+    input[type=submit] {
+      position: relative;
+      background-color: $primary-color;
+    }
+  }
 }
