@@ -36,6 +36,8 @@
 #  index_jobs_on_user_id             (user_id)
 #
 class Job < ApplicationRecord
+  include Filterable
+
   extend FriendlyId
   friendly_id :title, use: [:slugged]
 

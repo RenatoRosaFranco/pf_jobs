@@ -22,7 +22,7 @@ class JobAlert < ApplicationRecord
   validates_uniqueness_of :email, scope: [:alerteable_type]
   validates_presence_of   :email
 
-  enum modality: %w['Diário', 'Semanal', 'Mensal']
+  enum modality: ['Diário', 'Semanal', 'Mensal']
   belongs_to :alerteable, polymorphic: true, optional: true
 
   after_create :create_token

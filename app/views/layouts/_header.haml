@@ -15,16 +15,36 @@
         %ul{class: 'nav navbar-nav'}
           - if current_user
             %li= link_to 'Home', root_path
-          %li= link_to 'Vagas', jobs_path
-          %li= link_to 'Empresas', companies_path
+          %li
+            %a{href: jobs_path}
+              %i{class: 'fas fa-briefcase'}
+              Vagas
+          %li
+            %a{href: companies_path}
+              %i{class: 'fas fa-building'}
+              Empresas
+
           //%li= link_to 'Cursos',
           //%li= link_to 'Blog', ''
           //%li= link_to 'Contato', ''
 
         %ul{class: 'nav navbar-nav navbar-right'}
           - unless current_user
-            %li= link_to 'Entrar', new_user_session_path
-            %li= link_to 'Cadastrar', new_user_registration_path
+            %li
+              %a{ href: new_user_session_path }
+                %i{class: 'fas fa-sign-in-alt'}
+                Entrar
+            %li
+              %a{ href: new_user_registration_path }
+                %i{class: 'fas fa-user-circle'}
+                Criar Conta
+
           - else
-            %li= link_to 'Logout', destroy_user_session_path, method: :delete
-            %li= link_to 'Minha Conta', dashboard_path
+            %li
+              %a{ href: destroy_user_session_path, method: :delete }
+                %i{ class: 'fas fa-power-off' }
+                Logout
+            %li
+              %a{ href: dashboard_path }
+                %i{ class: 'fas fa-user-circle' }
+                Minha Conta

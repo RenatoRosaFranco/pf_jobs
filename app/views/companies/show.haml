@@ -12,7 +12,7 @@
             = link_to 'Voltar', jobs_path, class: 'btn btn-primary btn-lg top btn-back'
 
             .col-md-2
-              = image_tag('logo.jpg', class: 'logo', height: 130, width: 130)
+              = image_tag(@company.profile.logo, class: 'logo', height: 130, width: 130)
             .col-md-10
               %h2{class: 'bold'} #{@company.profile.name}
               %ul{class: 'list-unstyled list-inline'}
@@ -93,9 +93,13 @@
                     .input-group
                       .input-group-addon
                         %i{class: 'fas fa-mail-bulk'}
-                      = f.select(:email, {'Diario': 'Diario', 'Semanal': 'Semanal', 'Mensal': 'Mensal'},
+                      = f.select(:modality, {'Diário': 'Diário', 'Semanal': 'Semanal', 'Mensal': 'Mensal'},
                       { prompt: 'Selecionar'}, {class: 'form-control no-border-left'})
                   %br
+
+                  .field
+                    = f.hidden_field :alerteable_id, value: @company.id
+                    = f.hidden_field :alerteable_type, value: @company.class.to_s
 
                   .field
                     = recaptcha_tags
