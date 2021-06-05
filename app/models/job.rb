@@ -56,6 +56,7 @@ class Job < ApplicationRecord
   scope :recents,     -> { order(created_at: :desc) }
   scope :active,      -> { where(expirated: false) }
 
+  has_many   :applications, class_name: 'JobApplication'
   belongs_to :hiring_type
   belongs_to :occupation_area
   belongs_to :city

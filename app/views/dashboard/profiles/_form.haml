@@ -4,44 +4,64 @@
     .field
       = f.label :logo, 'Logo'
       = f.file_field :logo
+    %br
 
   .col-md-6
     .field
       = f.label :name, 'Nome'
-      = f.text_field :name, class: 'form-control', required: 'required',
-      placeholder: 'Digite o nome', autocomplete: 'off'
+      .input-group
+        .input-group-addon
+          %i{class: ''}
+        = f.text_field :name, class: 'form-control no-border-left', required: 'required',
+        placeholder: 'Digite o nome', autocomplete: 'off'
 
   .col-md-6
     .field
       = f.label :phone, 'Telefone'
-      = f.phone_field :phone, class: 'form-control', required: 'required',
+      .input-group
+        .input-group-addon
+          %i{class: ''}
+        = f.phone_field :phone, class: 'form-control', required: 'required',
       placeholder: 'Digite o telefone', autocomplete: 'off'
 
   .col-md-12
     .field
       = f.label :description, 'Descrição'
-      = f.text_area :description, class: 'form-control', required: 'required',
-      placeholder: 'Digite a descrição', autocomplete: 'off'
+      .input-group
+        .input-group-addon
+          %i{class: ''}
+        = f.text_area :description, class: 'form-control', required: 'required',
+        placeholder: 'Digite a descrição', autocomplete: 'off'
 
   .col-md-12
     .field
       = f.label :website, 'Website'
-      = f.url_field :website, class: 'form-control', required: 'required',
-      placeholder: 'Digite o endereço'
+      .input-group
+        .input-group-addon
+          %i{class: ''}
+        = f.url_field :website, class: 'form-control', required: 'required',
+        placeholder: 'Digite o endereço'
 
   .col-md-6
     .field
       = f.label :state_id, 'Estado'
-      = f.collection_select(:state_id, State.all, :id, :name,
-      { prompt: 'Selecionar Estado' }, { class: 'form-control', required: 'required' })
+      .input-group
+        .input-group-addon
+          %i{class: ''}
+        = f.collection_select(:state_id, State.all, :id, :name,
+        { prompt: 'Selecionar Estado' }, { class: 'form-control', required: 'required' })
 
   .col-md-6
     .field
       = f.label :city_id, 'Cidade'
-      = f.collection_select(:city_id, City.all, :id, :name,
-      { prompt: 'Selecionar Cidade' }, { class: 'form-control', required: 'required' })
+      .input-group
+        .input-group-addon
+          %i{class: ''}
+        = f.collection_select(:city_id, City.all, :id, :name,
+        { prompt: 'Selecionar Cidade' }, { class: 'form-control', required: 'required' })
 
   .col-md-12
     %br
     .actions
-      = f.submit nil, class: 'btn btn-primary btn-lg top'
+      = f.submit nil, class: 'btn btn-primary btn-lg top',
+      style: 'background-color: #00315c; font-weight: bold;'

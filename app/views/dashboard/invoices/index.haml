@@ -5,5 +5,27 @@
 
 %section{id: 'content'}
   .container
-    .row 
+    .row
       .col-md-12
+
+        .row
+          .col-md-12
+            .panel{class: 'panel panel-default', style: 'padding-left: 30px;'}
+              .panel-body
+
+                .col-md-10{class: 'col-md-offset-1'}
+                  %table{class: 'table table-hovered'}
+                    %thead
+                      %tr
+                        %th Recibo
+                        %th Descrição
+                        %th Data
+                        %th Valor
+                        %th Status
+                    %tbody
+                      %tr
+                        %td= link_to '#2421', ''
+                        %td Publicar vagas
+                        %td= format_date(Date.today)
+                        %td R$ 0.00
+                        %td{class: 'alert-success'} Pago

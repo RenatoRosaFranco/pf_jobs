@@ -3,7 +3,83 @@
 = provide :keywords, ''
 = provide :ld_json, {}
 
-%section{id: 'content'}
-  .container
-    .row 
-      .col-md-12
+.col-md-offset-1
+  %section{id: 'content'}
+    .container
+      .row
+
+        .col-md-12
+
+        .col-md-8
+          #search
+            .row
+              .col-md-4
+                = form_for(:statistics) do |f|
+
+                  .field
+                    = f.select(:period,
+                    {'Hoje': 'Hoje',
+                    'Últimos 7 dias': 'Últimos 7 dias',
+                    'Últimos 30 dias': 'Últimos 30 dias',
+                    'Customizado': 'Customizado',
+                    }, { prompt: 'Selecionar'}, { class: 'form-control' })
+            %hr
+
+          #statistics
+            .row
+              .col-md-8
+
+                .row
+                  .col-md-6
+                    .panel{class: 'panel-default'}
+                      .panel-body
+                        %h1{class:  'pull-right'}
+                          %i{class: 'fas fa-briefcase'}
+                        %h3{class:  'bold'} #{rand(0..100)}
+                        %p Vaga(s) publicada
+
+                  .col-md-6
+                    .panel{class: 'panel-default'}
+                      .panel-body
+                        %h1{class:  'pull-right'}
+                          %i{class: 'fas fa-eye'}
+                        %h3{class:  'bold'} #{rand(0..100)}
+                        %p Visualizações de vagas
+
+                  .col-md-6
+                    .panel{class: 'panel-default'}
+                      .panel-body
+                        %h1{class:  'pull-right'}
+                          %i{class: 'fas fa-user-friends'}
+                        %h3{class:  'bold'} #{rand(0..100)}
+                        %p Candidatos
+
+                  .col-md-6
+                    .panel{class: 'panel-default'}
+                      .panel-body
+                        %h1{class:  'pull-right'}
+                          %i{class: 'fas fa-mouse-pointer'}
+                        %h3{class:  'bold'} #{rand(0..100)}
+                        %p Cliques
+
+                  .col-md-6
+                    .panel{class: 'panel-default'}
+                      .panel-body
+                        %h1{class:  'pull-right'}
+                          %i{class: 'fas fa-filter'}
+                        %h3{class:  'bold'} #{rand(0..100)}
+                        %p Taxa de candidaturas
+
+        .col-md-4
+          %br
+          %br
+          %br
+          .col-md-offset-1{class: 'col-md-8'}
+            .panel{class: 'panel-default'}
+              .panel-body
+                %h4{class: 'bold text-center'} Planos contratados
+                %hr
+
+                %h6{class: 'bold'} Publicar Vagas
+                %p Comprado em: (11/01/2021)
+                %p 1/ilimitado vagas publicadas.

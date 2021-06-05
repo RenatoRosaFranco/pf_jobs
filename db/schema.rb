@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_194714) do
+ActiveRecord::Schema.define(version: 2021_06_05_195211) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 2021_06_03_194714) do
     t.integer "modality", default: 0
     t.boolean "status"
     t.string "token"
+  end
+
+  create_table "job_applications", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.float "desirable_salary"
+    t.text "presentation_letter"
+    t.integer "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_job_applications_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|

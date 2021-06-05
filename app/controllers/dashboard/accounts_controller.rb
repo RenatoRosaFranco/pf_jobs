@@ -2,6 +2,7 @@
 
 module Dashboard
   class AccountsController < HomeController
+
     def index
     end
   end

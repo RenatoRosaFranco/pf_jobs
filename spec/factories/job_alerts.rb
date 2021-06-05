@@ -5,7 +5,7 @@
 #  id              :integer          not null, primary key
 #  alerteable_type :string
 #  email           :string
-#  modality        :integer          default("'Diário',")
+#  modality        :integer          default("Diário")
 #  status          :boolean
 #  token           :string
 #  created_at      :datetime         not null

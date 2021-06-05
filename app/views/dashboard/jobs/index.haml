@@ -11,26 +11,48 @@
         .row
           .col-md-7{class: 'col-md-offset-2'}
             .col-md-12
-              = link_to 'Publicar uma Vaga', new_dashboard_job_path, class: 'btn btn-primary btn-lg pull-right'
+              = link_to 'Publicar uma Vaga', new_dashboard_job_path, class: 'btn btn-primary btn-lg pull-right',
+              style: 'background-color: #003351c;'
               %h4{class: 'bold'} #{current_user.jobs.count} Vaga(s) Publicada(s)
               %hr
 
-            .col-md-12
+            .row
+              .col-md-12
+                = form_for(:filtering, { url: dashboard_jobs_path, method: :get }) do |f|
 
+                  .col-md-4{style: 'padding-top: 10px;'}
+                    = f.text_field :keywords, class: 'form-control', required: 'required',
+                    placeholder: 'Palavras-chave', autocomplete: 'off'
+
+                  .col-md-8
+                    .row
+                      .col-md-12
+                        .panel{class: 'panel-default'}
+                          .panel-body
+                            = f.check_box :status, value: nil
+                            Todas as Vagas
+                            = f.check_box :status, value: ''
+                            Ativa
+                            = f.check_box :status, value: ''
+                            Inativa
+                            = f.check_box :status, value: ''
+                            Destacada
+
+            %br
 
         .row
           .col-md-7{class: 'col-md-offset-2'}
             #jobs
               - current_user.jobs.limit(4).each do |job|
-                .col-md-12
+                .col-md-12{id: 'job-block'}
                   .panel{class: 'panel-default'}
                     .panel-body
                       .col-md-10
-                        %h4{class: 'bold'}= link_to job.title, edit_dashboard_job_path(job)
+                        %h4{class: 'job-title bold'}= link_to job.title, edit_dashboard_job_path(job)
                         %ul{class: 'list-unstyled list-inline'}
-                          %li Vencido
-                          %li #{format_date(job.created_at)} - #{format_date(job.expiration_date)}
-                          %li #{job.modality} (#{job.state.name})
+                          %li{class: 'job-status bold'} Vencido
+                          %li{class: 'job-date'} #{format_date(job.created_at)} - #{format_date(job.expiration_date)}
+                          %li{class: 'job-location'} #{job.modality} (#{job.state.name})
                         %ul{class: 'lust-unstyled list-inline'}
                           %li{class: 'bold'}
                             %i{class: 'far fa-eye'}
@@ -39,5 +61,7 @@
                             %i{class: 'fas fa-users'}
                             #{rand(0..100)} Candidaturas
 
+
             #pagination
               .text-center
+        }

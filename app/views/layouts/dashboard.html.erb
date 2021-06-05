@@ -14,26 +14,48 @@
   <body class="<%= controller.controller_name %>">
     <%= render partial: 'layouts/header' %>
 
-      <div class='col-md-offset-1'>
-        <div class='navbar'>
+      <div class='col-md-10 col-md-offset-1'>
+        <div class="row">
+          <div class="text-center">
+            <%= image_tag('logo.jpg', class: '', width: 124, height: 124) %>
+            <div class='session-status' alt='Online'></div>
+            <h2 class='bold uppercase'>Minha Conta</h2>
+          </div>
+        </div>
+
+        <div class='navbar dashboard-navbar'>
           <ul class='nav nav-tabs'>
             <li class='role'>
-              <%= link_to 'Dashboard', dashboard_path %>
+              <a href='<%= dashboard_path %>' class='active'>
+                <i class='fas fa-tachometer-alt'></i>
+                Dashboard
+              </a>
             </li>
             <li class='role'>
-              <%= link_to 'Vagas publicadas', dashboard_jobs_path %>
+              <a href='<%= dashboard_jobs_path %>'>
+                <i class='fas fa-briefcase'></i>
+                Vagas Publicadas
+              </a>
             </li>
             <li class='role'>
-              <%= link_to 'Invoices', dashboard_invoices_path %>
+              <a href='<%= dashboard_invoices_path %>'>
+                <i class='fas fa-ticket-alt'></i>
+                Faturas
+              </a>
             </li>
             <li class='role'>
-              <%= link_to 'Meu Perfil', edit_dashboard_profile_path(current_user.profile) %>
+              <a href='<%= edit_dashboard_profile_path(current_user.profile) %>'>
+                <i class='fas fa-user-circle'></i>
+                Meu Perfil
+              </a>
             </li>
           </ul>
         </div>
       </div>
 
       <%= yield %>
+
+      <%= render partial: 'shared/zendesk' %>
     <%= render partial: 'layouts/footer' %>
   </body>
 </html>

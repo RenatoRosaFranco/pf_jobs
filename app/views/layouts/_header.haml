@@ -41,7 +41,7 @@
 
           - else
             %li
-              %a{ href: destroy_user_session_path, method: :delete }
+              %a{ href: destroy_user_session_path, method: :delete, :data => { no_turbolink: true }}
                 %i{ class: 'fas fa-power-off' }
                 Logout
             %li
