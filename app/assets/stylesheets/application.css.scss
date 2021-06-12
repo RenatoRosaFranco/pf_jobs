@@ -14,6 +14,8 @@
  *= require_self
  */
  @import 'bootstrap';
+ @import 'alertify/default';
+ @import 'alertify/bootstrap';
 
  $primary-color: #00315c;
 
@@ -69,6 +71,7 @@
 
  #presenter {
    position: relative;
+   background-color: $primary-color;
    background-image: url("branding/brand-bge.jpeg") !important;
    color: #FFF;
    margin-top: -20px;

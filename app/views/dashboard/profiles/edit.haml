@@ -33,7 +33,10 @@
                   %tbody
                     %tr
                       %td= @profile.user.id
-                      %td{class: 'bold'}= @profile.user.name
+                      %td
+                        = link_to @profile.user.name, '', class: 'bold'
+                        %p{style: 'font-size: 13px;'}
+                          Fundador, CTO
                       %td= link_to @profile.user.email, "mailto:#{@profile.user.email}"
                       %td
                         %a{class: 'btn btn-default'}

@@ -242,3 +242,15 @@ Job.destroy_all
     ]
   )
 end
+
+# Plans
+# @implemented
+Plan.destroy_all
+Plan.create(
+  [
+    { name: 'Gratuito', price: 0.00,   user: admin },
+    { name: 'Básico',   price: 60.00,  user: admin },
+    { name: 'Premium',  price: 150.00, user: admin },
+    { name: 'Elite',    price: 450.00, user: admin }
+  ]
+)

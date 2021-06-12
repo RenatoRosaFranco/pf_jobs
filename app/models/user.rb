@@ -15,10 +15,12 @@
 #  reset_password_token   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  plan_id                :integer          default(1)
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_plan_id               (plan_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
@@ -27,17 +29,21 @@ class User < ApplicationRecord
 
   acts_as_paranoid
 
-  has_one  :profile, dependent: :destroy
-  has_many :jobs, dependent: :destroy
-  has_many :cities, dependent: :destroy
-  has_many :hiring_types, dependent: :destroy
-  has_many :occupation_areas, dependent: :destroy
-  has_many :states, dependent: :destroy
+  has_one    :profile,           dependent: :destroy
+  has_one    :plan,              dependent: :destroy
 
-  scope    :recents,  -> { order(created_at: :desc) }
-  scope    :featured, -> { where(featured: true) }
+  has_many   :jobs,              dependent: :destroy
+  has_many   :cities,            dependent: :destroy
+  has_many   :hiring_types,      dependent: :destroy
+  has_many   :occupation_areas,  dependent: :destroy
+  has_many   :states,            dependent: :destroy
 
-  after_create :create_profile
+  belongs_to :plan, dependent: :destroy
+
+  scope      :recents,  -> { order(created_at: :desc) }
+  scope      :featured, -> { where(featured: true) }
+
+  after_create :create_profile, :create_plan
 
   has_many :alerts, class_name: 'JobAlert', as: :alerteable
   # Include default devise modules. Others available are:
