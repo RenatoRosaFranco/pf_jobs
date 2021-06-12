@@ -52,8 +52,17 @@
 
   a {
     position: relative;
+    font-size: 12px;
     text-transform: uppercase;
     color: #FFF !important;
+  }
+
+  .flag-icon {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    border-radius: 22px;
+    margin-right: 5px;
   }
 }
 

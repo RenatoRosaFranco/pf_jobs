@@ -29,6 +29,10 @@
               Parceiros
           %li
             %a{href: companies_path}
+              %i{class: 'fas fa-blog'}
+              Blog
+          %li
+            %a{href: companies_path}
               %i{class: 'fab fa-monero'}
               Planos
 
@@ -56,3 +60,18 @@
               %a{ href: dashboard_path }
                 %i{ class: 'fas fa-user-circle' }
                 Minha Conta
+          %li{class: 'dropdown'}
+            %a{ href: '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button',
+            'aria-haspopup': 'true', 'aria-expanded': 'false'}
+              = image_tag('flags/pt-br.png', class: 'flag-icon')
+              PT-BR 
+              %span{class: 'caret'}
+            %ul{class: 'dropdown-menu', style: 'background-color: #00315c;'}
+              %li
+                %a{}
+                  = image_tag('flags/pt-br.png', class: 'flag-icon')
+                  PT-BR
+              %li
+                %a{}
+                  = image_tag('flags/es.png', class: 'flag-icon')
+                  ES
