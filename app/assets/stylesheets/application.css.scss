@@ -44,7 +44,8 @@
   background-color: $primary-color;
   border-radius: 0px !important;
   border: 1px solid $primary-color;
-  padding-top: 10px;
+  height: 60px;
+  padding-top: 5px;
 
   a {
     position: relative;
@@ -68,7 +69,7 @@
 
  #presenter {
    position: relative;
-   background-color: $primary-color;
+   background-image: url("branding/brand-bge.jpeg") !important;
    color: #FFF;
    margin-top: -20px;
    padding-top: 120px;
@@ -124,6 +125,18 @@
      }
    }
 
+   .user-box {
+     position: relative;
+     background-color: $primary-color !important;
+     background-image: url("branding/brand-bge.jpeg");
+   }
+
+   .company-box {
+     position: relative;
+     background-color: $primary-color;
+     background-image: url("branding/brand-bgs.jpeg");
+   }
+
    .box-background {
      position: relative;
      background-color: $primary-color;
@@ -168,9 +181,10 @@
 
  #new-job {
    position: relative;
-   padding-top: 50px;
-   padding-bottom: 50px;
+   padding-top: 80px;
+   padding-bottom: 80px;
    background-color: $primary-color;
+   background-image: url("branding/brand-bgs.jpeg");
    color: #FFF;
 
    a {
@@ -195,6 +209,16 @@
   a {
     position: relative;
     color: #CCC;
+  }
+
+  #social {
+    position: relative;
+
+    i {
+      position: relative;
+      margin-top: 5px;
+      font-size: 17px;
+    }
   }
 }
 

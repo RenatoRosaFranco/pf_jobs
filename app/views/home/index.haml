@@ -59,7 +59,7 @@
         .row{id: 'modality'}
           .col-md-6
             .panel.panel-default
-              .panel-body{class: 'box box-background'}
+              .panel-body{class: 'box box-background user-box'}
                 .inner-box{class: 'col-md-8'}
                   .panel{class: 'panel-default'}
                     .panel-body
@@ -72,7 +72,7 @@
 
           .col-md-6
             .panel.panel-default
-              .panel-body{class: 'box box-background'}
+              .panel-body{class: 'box box-background company-box'}
                 .inner-box{class: 'col-md-8'}
                   .panel{class: 'panel-default'}
                     .panel-body
@@ -171,13 +171,19 @@
                 .panel-body{id: 'newsletter-form'}
                   = form_for(:newsletter, {url: '', method: :post}) do |f|
                     .field
-                      = f.email_field :email, class: 'form-control',
-                      required: 'required', placeholder: 'Seu e-mail'
+                      .input-group
+                        .input-group-addon
+                          %i{class: 'far fa-user'}
+                        = f.email_field :email, class: 'form-control',
+                        required: 'required', placeholder: 'Seu e-mail'
                     %br
 
                     .field
-                      = f.select(:email, { 'Diário': 'Diário', 'Mensal': 'Mensal', 'Semanal': 'Semanal' },
-                      { prompt: 'Selecionar'}, {class: 'form-control'})
+                      .input-group
+                        .input-group-addon
+                          %i{class: 'far fa-envelope'}
+                        = f.select(:email, { 'Diário': 'Diário', 'Mensal': 'Mensal', 'Semanal': 'Semanal' },
+                        { prompt: 'Selecionar'}, {class: 'form-control'})
                     %br
 
                     .field{class: 'text-center'}

@@ -4,23 +4,66 @@
       .col-md-12
         .col-md-3
           %ul{class: 'list-unstyled'}
+            %h4{class: 'bold uppercase'} Sitemap
             %li= link_to 'Home', ''
             %li= link_to 'Contato', ''
             %li= link_to 'Sobre nós', ''
             %li= link_to 'Termos de uso'
+            %li= link_to 'Trabalhe Conosco', ''
+            %li= link_to 'Imprensa', ''
 
         .col-md-3
-          %h4{class: 'bold uppercase'} Empresa
+          %h4{class: 'bold uppercase'} Empresas
           %ul{class: 'list-unstyled'}
             %li= link_to 'Publicar Vaga', ''
+            %li= link_to 'Perguntas Frequentes', ''
+            %li= link_to 'Nossos Parceiros', ''
             %li= link_to 'Entrar', ''
+            %li= link_to 'Blog', ''
 
         .col-md-3
           %h4{class: 'bold uppercase'} Candidatos
           %ul{class: 'list-unstyled'}
             %li= link_to 'Buscar Vagas', ''
+            %li= link_to 'Perguntas Frequentes', ''
+            %li= link_to 'Blog', ''
 
         .col-md-3
           %h4{class: 'bold uppercase'} Procurando Estágio/Estagiários?
           %ul{class: 'list-unstyled'}
             %li= link_to 'Buscar Vagas', ''
+
+      .col-md-12{style: 'padding-top: 50px; margin-left: -18px;'}
+        .col-md-9
+          .col-md-2
+            %h4{class: 'bold'} Recursos
+          .col-md-10
+            %ul{class: 'list-unstyled list-inline', style: 'margin-top: 10px;'}
+              %li=link_to 'Política de Privacidade', ''
+              %li=link_to 'Termos de Uso para Usuários', ''
+              %li=link_to 'Termos de Uso para Empresas', ''
+          .col-md-12
+            %p <span class='bold'>&copy #{Date.today.year} - Portal Fronteiriço</span> - Todos os direitos reservados. CNPJ: 21.129.738/0001-23
+            %small R. General Osório Nº 2215 - Centro, São Borja - Rio Grande do Sul
+
+        .col-md-3{id: 'social'}
+          %h4{class: 'bold uppercase'} Na Mídia
+          %ul{class: 'list-unstyled list-inline'}
+            %li
+              %a{href: 'https://facebook.com/portalfronteirico', title: 'Facebook | Portal Fronteiriço',  target: '_blank'}
+                %i{class: 'fab fa-facebook-square'}
+            %li
+              %a{href: 'https://instagram.com/portalfronteirico', title: 'Instagram | Portal Fronteiriço' ,target: '_blank'}
+                %i{class: 'fab fa-instagram'}
+            %li
+              %a{href: 'https://twitter.com/pfronteirico', title: 'Twitter | Portal Fronteiriço',  target: '_blank'}
+                %i{class: 'fab fa-twitter'}
+            %li
+              %a{href: 'https://linkedin.com/company/67337256', title: 'Linkedin | Portal Fronteiriço', target: '_blank'}
+                %i{class: 'fab fa-linkedin'}
+            %li
+              %a{href: 'https://youtube.com.br/portalfronteirico', title: 'Youtube | Portal Fronteiriço', target: '_blank'}
+                %i{class: 'fab fa-youtube'}
+            %li
+              %a{href: 'mailto:contato@portalfronteirico', title: 'Contato | Portal Fronteiriço', target: '_blank'}
+                %i{class: 'fas fa-envelope-square'}

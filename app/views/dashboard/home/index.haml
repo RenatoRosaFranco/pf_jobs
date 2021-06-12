@@ -35,7 +35,7 @@
                       .panel-body
                         %h1{class:  'pull-right'}
                           %i{class: 'fas fa-briefcase'}
-                        %h3{class:  'bold'} #{rand(0..100)}
+                        %h3{class:  'bold'} #{current_user.jobs.count}
                         %p Vaga(s) publicada
 
                   .col-md-6
@@ -43,7 +43,7 @@
                       .panel-body
                         %h1{class:  'pull-right'}
                           %i{class: 'fas fa-eye'}
-                        %h3{class:  'bold'} #{rand(0..100)}
+                        %h3{class:  'bold'} Em Breve
                         %p Visualizações de vagas
 
                   .col-md-6
@@ -51,7 +51,7 @@
                       .panel-body
                         %h1{class:  'pull-right'}
                           %i{class: 'fas fa-user-friends'}
-                        %h3{class:  'bold'} #{rand(0..100)}
+                        %h3{class:  'bold'} Em Breve
                         %p Candidatos
 
                   .col-md-6
@@ -59,7 +59,7 @@
                       .panel-body
                         %h1{class:  'pull-right'}
                           %i{class: 'fas fa-mouse-pointer'}
-                        %h3{class:  'bold'} #{rand(0..100)}
+                        %h3{class:  'bold'} Em Breve
                         %p Cliques
 
                   .col-md-6
@@ -67,7 +67,7 @@
                       .panel-body
                         %h1{class:  'pull-right'}
                           %i{class: 'fas fa-filter'}
-                        %h3{class:  'bold'} #{rand(0..100)}
+                        %h3{class:  'bold'} Em Breve
                         %p Taxa de candidaturas
 
         .col-md-4

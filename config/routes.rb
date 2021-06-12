@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   resources :companies, only: %i[index show]
   resources :courses, only: %i[index]
 
+  # Juridical
+  # @implemented
+  get 'terms-of-use'         => 'terms_of_use#index',         as: :terms_of_use
+  get 'user-terms-of-use'    => 'user_terms_of_use#index',    as: :user_terms_of_use
+  get 'company-terms-of-use' => 'company_terms_of_use#index', as: :company_terms_of_use
+
   # Actions
   # @implemented
   resources :job_alerts, only: [:create]

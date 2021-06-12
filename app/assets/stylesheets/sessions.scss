@@ -3,9 +3,13 @@ $primary-color: #00315c;
 .sessions, .registrations {
   position: relative;
   background-color: $primary-color;
+  background-image: url('branding/brand-bge.jpeg');
+  background-repeat: no-repeat;
+  background-size: auto;
 
   .panel-default {
     position: relative;
+    box-shadow: 0 0 1em #000;
     margin-top: 40px;
 
     .logo {
